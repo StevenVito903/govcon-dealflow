@@ -1,0 +1,1801 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https:; img-src 'self' data: https:; style-src 'self' 'unsafe-inline' https:; script-src 'self' 'unsafe-inline' https:; font-src 'self' https:;">
+    <title>GovCon Deal Flow - To Inform, Prepare, Connect</title>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #1e3a5f;
+            --accent-blue: #2563eb;
+            --light-gray: #f5f7fa;
+            --medium-gray: #e5e7eb;
+            --dark-gray: #374151;
+            --text-dark: #1f2937;
+            --border-color: #d1d5db;
+            --green: #059669;
+            --red: #dc2626;
+            --sponsor-bg: #fef3c7;
+            --sponsor-border: #f59e0b;
+        }
+
+        body {
+            font-family: 'Work Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--text-dark);
+            background-color: #ffffff;
+            line-height: 1.6;
+        }
+
+        .header {
+            background: white;
+            padding: 1.5rem 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .logo-image {
+            height: 90px;
+            width: auto;
+        }
+
+        .tagline {
+            font-size: 1rem;
+            color: var(--dark-gray);
+            font-style: italic;
+            margin-left: 0;
+            margin-top: 0.25rem;
+        }
+
+        .top-nav {
+            display: flex;
+            justify-content: flex-end;
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+
+        .top-nav a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .nav-bar {
+            background: var(--light-gray);
+            border-bottom: 1px solid var(--border-color);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .nav-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: center;
+            gap: 5rem;
+        }
+
+        .nav-content a {
+            padding: 1rem 0;
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 600;
+            font-size: 1rem;
+            border-bottom: 3px solid transparent;
+            transition: all 0.2s;
+        }
+
+        .nav-content a:hover {
+            color: var(--accent-blue);
+            border-bottom-color: var(--accent-blue);
+        }
+
+        .main-container {
+            max-width: 1400px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+        }
+
+        .news-column {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .section-title {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            color: var(--primary-blue);
+        }
+
+        .news-item {
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 1.5rem;
+        }
+
+        .news-tag {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: var(--accent-blue);
+            color: white;
+            font-size: 0.75rem;
+            font-weight: 600;
+            border-radius: 3px;
+            margin-right: 0.75rem;
+        }
+
+        .news-date {
+            color: var(--dark-gray);
+            font-size: 0.875rem;
+        }
+
+        .news-headline {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin: 0.5rem 0;
+            color: var(--text-dark);
+            line-height: 1.4;
+        }
+
+        .news-headline a {
+            color: var(--text-dark);
+            text-decoration: none;
+        }
+
+        .news-headline a:hover {
+            color: var(--accent-blue);
+        }
+
+        .news-excerpt {
+            color: var(--dark-gray);
+            font-size: 0.95rem;
+            margin: 0.5rem 0;
+            line-height: 1.6;
+        }
+
+        .news-source {
+            color: var(--dark-gray);
+            font-size: 0.875rem;
+            font-style: italic;
+        }
+
+        /* SPONSOR CONTENT BLOCK */
+        .sponsor-block {
+            background: linear-gradient(135deg, #f0f4f8 0%, #e8edf2 100%);
+            border: 2px solid #6b7280;
+            border-radius: 8px;
+            padding: 1.35rem;
+            margin: 2rem 0;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(107, 114, 128, 0.15);
+        }
+
+        .sponsor-label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #374151;
+            margin-bottom: 0.65rem;
+            text-align: left;
+        }
+
+        .sponsor-headline {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin-bottom: 0.65rem;
+            line-height: 1.3;
+        }
+
+        .sponsor-text {
+            color: var(--dark-gray);
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .sponsor-cta {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background: var(--primary-blue);
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+
+        .sponsor-cta:hover {
+            background: var(--accent-blue);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+        }
+
+        /* NEWSLETTER BLOCK */
+        .newsletter-block {
+            background: linear-gradient(135deg, #e8edf2 0%, #f0f4f8 100%);
+            border: 2px solid #d1d5db;
+            border-radius: 8px;
+            padding: 1.25rem;
+            margin: 2rem 0;
+            color: var(--text-dark);
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .newsletter-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: none;
+        }
+
+        .newsletter-headline {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            color: var(--primary-blue);
+        }
+
+        .newsletter-text {
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+            line-height: 1.5;
+            color: var(--dark-gray);
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 0.5rem;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .newsletter-input {
+            flex: 1;
+            padding: 0.875rem 1.25rem;
+            border: 2px solid var(--border-color);
+            border-radius: 5px;
+            font-size: 1rem;
+            background: white;
+            color: var(--text-dark);
+        }
+
+        .newsletter-input::placeholder {
+            color: var(--dark-gray);
+        }
+
+        .newsletter-button {
+            padding: 0.875rem 2rem;
+            background: var(--primary-blue);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .newsletter-button:hover {
+            background: var(--accent-blue);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+        }
+
+        .newsletter-note {
+            font-size: 0.75rem;
+            margin-top: 0.75rem;
+            color: var(--dark-gray);
+        }
+
+        /* RIGHT SIDEBAR */
+        .sidebar {
+            position: sticky;
+            top: 2rem;
+            height: fit-content;
+        }
+
+        .fmi-widget {
+            background: var(--light-gray);
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .fmi-header {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .fmi-title {
+            font-size: 1.1rem;
+            color: var(--dark-gray);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .fmi-info-icon {
+            cursor: pointer;
+            font-size: 1rem;
+            color: var(--accent-blue);
+            font-weight: bold;
+            border: 2px solid var(--accent-blue);
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+
+        .fmi-info-icon:hover {
+            background: var(--accent-blue);
+            color: white;
+        }
+
+        .fmi-modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+        }
+
+        .fmi-modal-content {
+            background-color: white;
+            margin: 10% auto;
+            padding: 2rem;
+            border-radius: 8px;
+            max-width: 600px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            position: relative;
+        }
+
+        .fmi-modal-close {
+            position: absolute;
+            right: 1rem;
+            top: 1rem;
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--dark-gray);
+            cursor: pointer;
+            line-height: 1;
+        }
+
+        .fmi-modal-close:hover {
+            color: var(--accent-blue);
+        }
+
+        .fmi-modal h3 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.5rem;
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+        }
+
+        .fmi-modal p {
+            line-height: 1.7;
+            color: var(--dark-gray);
+            margin-bottom: 1rem;
+        }
+
+        .fmi-value {
+            font-family: 'Crimson Pro', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+        }
+
+        .fmi-change {
+            color: var(--red);
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+
+        .fmi-change.positive {
+            color: var(--green);
+        }
+
+        .fmi-meta {
+            font-size: 0.75rem;
+            color: var(--dark-gray);
+            margin-top: 0.5rem;
+        }
+
+        .fmi-comparisons {
+            margin-top: 1.5rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--medium-gray);
+        }
+
+        .fmi-comparisons-title {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--dark-gray);
+            margin-bottom: 0.75rem;
+            text-align: center;
+        }
+
+        .comparison-item {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0.4rem 0;
+            position: relative;
+            gap: 1.5rem;
+        }
+
+        .comparison-ticker {
+            font-weight: 700;
+            color: var(--primary-blue);
+            font-size: 0.9rem;
+            cursor: help;
+            position: relative;
+            min-width: 40px;
+            text-align: right;
+        }
+
+        .comparison-ticker:hover .tooltip {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .tooltip {
+            visibility: hidden;
+            opacity: 0;
+            position: absolute;
+            bottom: 125%;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--text-dark);
+            color: white;
+            padding: 0.5rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: normal;
+            white-space: nowrap;
+            z-index: 1000;
+            transition: opacity 0.3s;
+        }
+
+        .tooltip::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: var(--text-dark) transparent transparent transparent;
+        }
+
+        .comparison-data {
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .comparison-price {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .comparison-change {
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .comparison-change.up {
+            color: var(--green);
+        }
+
+        .comparison-change.down {
+            color: var(--red);
+        }
+
+        .refresh-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            width: 100%;
+            padding: 0.5rem;
+            background: white;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            color: var(--dark-gray);
+            font-size: 0.875rem;
+            cursor: pointer;
+            margin-top: 1rem;
+        }
+
+        .companies-section {
+            margin-top: 1.5rem;
+        }
+
+        .companies-title {
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .company-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--medium-gray);
+        }
+
+        .company-info {
+            flex: 1;
+        }
+
+        .company-ticker {
+            font-weight: 700;
+            color: var(--primary-blue);
+            font-size: 0.9rem;
+        }
+
+        .company-name {
+            font-size: 0.8rem;
+            color: var(--dark-gray);
+        }
+
+        .company-price {
+            text-align: right;
+        }
+
+        .price-value {
+            font-weight: 600;
+            color: var(--text-dark);
+            font-size: 0.9rem;
+        }
+
+        .price-change {
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .price-change.up {
+            color: var(--green);
+        }
+
+        .price-change.down {
+            color: var(--red);
+        }
+
+        #fetch-progress {
+            text-align: center;
+            padding: 0.75rem;
+            background: #fef3c7;
+            border-radius: 5px;
+            margin: 1rem 0;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: #92400e;
+            display: none;
+        }
+
+        @media (max-width: 1024px) {
+            .main-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .sidebar {
+                position: static;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <div>
+                    <div class="logo-section">
+                        <img src="data:image/png;base64,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Va61bTMdFdXM3iZHlupFBVRxO3ZBHC5kO/c4sY1jS7meZBPmsY/2T8h/rZa/8PItW0qUqEWnLdmZcwq1pJqOx2ugjcoIrtlNofIBPUQ09REwntbGZGvP/wCRitYqrWXoyZnZblDc7RndHQ1sJ3jngjlY9vjzB7D2Ed6mzS60anWupq/d7lNsvlO6MCmFNTiN7Hb8ySI27jb1qtd6Jzc4yLNrrhFQlEzK822ivFoq7VcYGz0dXC6GaN3Y5jhsR+da+tYNP7pp3l09orWPko3kvoavh9Goi35H7odjh3HyIJ2ILw82xKwZnY32fIrfHWUrjxN35PidtsHscObXDft+fcLi1uXRlvyZ1c26rR25lZehVnNPbLzX4TcZ2xRXJwqaEuOwM4Gz2etzQ3b7jbtIVtlU3MOi9kVtr/Z+D3+GqZG/rIY6p5gqIyDuOF7Rwkjx9BZxjeaa849QMoMl0xdkMkQDG1VNXRxveAO15ZxgnzAHzqa5hCtLXTa37ciK3nOlHRUT/cneeWOCF800jI4o2lz3vOzWgDcknuC19695mzOtTbjeaZ5fQRbUtDuNvqLN9j+E4ud+Epw1DGv+ptE6zQYjHjFlm2E7HVsYfKPCR5cHFv8AZa0ee/JcumvRdoaGpir85ukdycw8XsCj4mwk/wBuQ7OcPIBvrK6tuHb5nN7+i3ObjiV8Rgtvcwvol6W1F/yGDNrzSltnt0nHRtkbyqqhp5EeLWHnv9kAOex2uMuKipaaipIaOjp4qenhYGRRRNDWMaBsAAOQAXKqleu609TLVCiqUdKCIigJiHulzivuh0mqLjBHxVdkkFYzYczH72UerhPEfuFSqwWypvV8oLPRN4qmuqI6eIf2nuDR+crZhXUsFdRT0VVGJaeojdFKw9jmuGxHygquWjHR/vmI6qxZBeai3z2ugMz6Pq5S6R7ju2MuaWgD0XF3byIC0rS5VOnJSfLkZ91budRNd+ZYXH7XS2SxUFmoW8NNQ08dPEP7LGho+Xku8iLNbyaCWAqadNDEvafUKnySmi4aW9wbyEDkJ4wGu+dvAfM8SuWo+1/wGXUPT6Wz0RgZc4J2VFFJMS1oeDs4EgEgFjnD17eCs2lXhVU3yK9zS4lNpcyr/RExn2+1cp6+aPipbNC6seSORk97GPXxO4h9wrwqJujRpjX6b47c2Xp1JJdLhUtc91M8vaImN2Y3cgc93PPyhSyvbyqqlXK5I8tKTp08PmERFVLIREQBERAEREAREQBERAfE3REA3TdEQDdN0RAN03REA3TdEQDdN0RAN03REA3TdEQDdB2ogQH1ERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREB//Z" alt="GovCon Deal Flow" class="logo-image">
+                    </div>
+                    <div class="tagline">To Inform, Prepare, Connect</div>
+                </div>
+                <div class="top-nav">
+                    <a href="#subscribe">Subscribe</a>
+                    <a href="#about">About</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="nav-bar">
+        <div class="nav-content">
+            <a href="#federal-market-index">Federal Market Index</a>
+            <a href="#capital-insights">Capital Insights</a>
+            <a href="#match-up">Match-Up</a>
+            <a href="#events">Events</a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="main-container">
+        <!-- Left/Center Column: News -->
+        <div class="news-column">
+            <h2 class="section-title">Recent News</h2>
+
+            <!-- News Item 1 -->
+            <article class="news-item">
+                <div>
+                    <span class="news-tag">M&A</span>
+                    <span class="news-date">Jan 21, 2026</span>
+                </div>
+                <h3 class="news-headline">
+                    <a href="#">Software sell-off sparked by AI sets stage for potential big year of M&A, investors say</a>
+                </h3>
+                <p class="news-excerpt">
+                    With software stocks badly trailing the rest of the tech sector of late, investors told CNBC that they're buying the dip and predicted a flurry of deals.
+                </p>
+                <p class="news-source">By CNBC</p>
+            </article>
+
+            <!-- News Item 2 -->
+            <article class="news-item">
+                <div>
+                    <span class="news-tag">M&A</span>
+                    <span class="news-date">Jan 27, 2026</span>
+                </div>
+                <h3 class="news-headline">
+                    <a href="#">Army Awards Salesforce $5.6 Billion Software Deal</a>
+                </h3>
+                <p class="news-excerpt">
+                    Military recruiters will get access to Slack as part of a contract that reflects the Pentagon's drive to adopt commercial software tools.
+                </p>
+                <p class="news-source">By WSJ</p>
+            </article>
+
+            <!-- News Item 3 -->
+            <article class="news-item">
+                <div>
+                    <span class="news-tag" style="background: #059669;">PE</span>
+                    <span class="news-date">Jan 22, 2024</span>
+                </div>
+                <h3 class="news-headline">
+                    <a href="#">Arlington Capital Partners Closes $3.2B Fund VII</a>
+                </h3>
+                <p class="news-excerpt">
+                    The private equity firm focused on government services and defense technology has secured its largest fund to date, signaling strong investor confidence in the sector.
+                </p>
+                <p class="news-source">By Michael Torres</p>
+            </article>
+
+            <!-- SPONSOR CONTENT BLOCK -->
+            <div class="sponsor-block">
+                <div class="sponsor-label">Sponsor Content</div>
+                <h3 class="sponsor-headline">Your Thought Leadership Content Here</h3>
+                <p class="sponsor-text">
+                    Reach decision-makers in the GovCon M&A, PE, and VC space. Contact us to learn about sponsorship opportunities.
+                </p>
+                <a href="#contact" class="sponsor-cta">Contact Us</a>
+            </div>
+
+            <!-- News Item 4 -->
+            <article class="news-item">
+                <div>
+                    <span class="news-tag">M&A</span>
+                    <span class="news-date">Jan 26, 2026</span>
+                </div>
+                <h3 class="news-headline">
+                    <a href="#">Peraton Acquires AI Analytics Firm for Undisclosed Sum</a>
+                </h3>
+                <p class="news-excerpt">
+                    The government contractor continues its strategic expansion into artificial intelligence and advanced analytics capabilities through targeted acquisitions.
+                </p>
+                <p class="news-source">By Defense News</p>
+            </article>
+
+            <!-- News Item 5 -->
+            <article class="news-item">
+                <div>
+                    <span class="news-tag" style="background: #7c3aed;">VC</span>
+                    <span class="news-date">Jan 24, 2026</span>
+                </div>
+                <h3 class="news-headline">
+                    <a href="#">Shield Capital Leads $45M Series B for Cyber Startup Targeting Federal Agencies</a>
+                </h3>
+                <p class="news-excerpt">
+                    The defense-focused venture capital firm continues its investment thesis in dual-use cybersecurity technologies serving both commercial and government markets.
+                </p>
+                <p class="news-source">By TechCrunch</p>
+            </article>
+
+            <!-- NEWSLETTER SIGNUP BLOCK -->
+            <div class="newsletter-block">
+                <div class="newsletter-icon">📬</div>
+                <h3 class="newsletter-headline">Subscribe to Our Free Weekly Newsletter</h3>
+                <p class="newsletter-text">
+                    Each edition includes a recap of the most important M&A, PE, and VC stories, an update on the Federal Market Index performance versus other major indices, and curated Capital Insights from industry experts.
+                </p>
+                <form class="newsletter-form">
+                    <input type="email" class="newsletter-input" placeholder="Enter your email address" required>
+                    <button type="submit" class="newsletter-button">Subscribe</button>
+                </form>
+                <p class="newsletter-note">We do not sell our subscriber list.</p>
+            </div>
+
+            <!-- News Item 6 -->
+            <article class="news-item">
+                <div>
+                    <span class="news-tag" style="background: #7c3aed;">VC</span>
+                    <span class="news-date">Jan 18, 2024</span>
+                </div>
+                <h3 class="news-headline">
+                    <a href="#">Anduril Industries Secures $1.5B Contract for Counter-UAS</a>
+                </h3>
+                <p class="news-excerpt">
+                    Following its recent funding round, Anduril lands major DoD contract to deploy autonomous defense systems across military installations.
+                </p>
+                <p class="news-source">By Michael Torres</p>
+            </article>
+
+            <!-- News Item 7 -->
+            <article class="news-item">
+                <div>
+                    <span class="news-tag">M&A</span>
+                    <span class="news-date">Jan 17, 2024</span>
+                </div>
+                <h3 class="news-headline">
+                    <a href="#">L3Harris Divests Commercial Aviation Business for $800M</a>
+                </h3>
+                <p class="news-excerpt">
+                    Strategic divestiture allows L3Harris to sharpen focus on core defense and space segments as part of ongoing portfolio optimization.
+                </p>
+                <p class="news-source">LHX<br>By Emily Watson</p>
+            </article>
+
+            <!-- News Item 8 -->
+            <article class="news-item">
+                <div>
+                    <span class="news-tag" style="background: #059669;">PE</span>
+                    <span class="news-date">Jan 16, 2024</span>
+                </div>
+                <h3 class="news-headline">
+                    <a href="#">AE Industrial Partners Acquires Hermeus at $1B Valuation</a>
+                </h3>
+                <p class="news-excerpt">
+                    The hypersonic aircraft developer joins AE Industrial's growing portfolio of dual-use aerospace and defense technology companies.
+                </p>
+                <p class="news-source">By David Park</p>
+            </article>
+
+            <!-- CAPITAL INSIGHTS SECTION -->
+            <h2 class="section-title" style="margin-top: 1rem; margin-bottom: 0.5rem;">Capital Insights</h2>
+
+            <!-- Insight 1 -->
+            <article class="news-item">
+                <h3 class="news-headline">
+                    <a href="#">GovCon M&A and Recertification: What Small Business Contractors, Investors, and Private Equity Firms Need to Know</a>
+                </h3>
+                <p class="news-excerpt">
+                    The Small Business Administration's (SBA) size and recertification rules have always been central to government contracting. But recent regulatory changes, and where we now stand in mid-January 2026, mark a meaningful shift in the GovCon M&A landscape, particularly for private equity firms and other investors.
+                </p>
+            </article>
+
+            <!-- Insight 2 -->
+            <article class="news-item">
+                <h3 class="news-headline">
+                    <a href="#">M&A Insider Report from The McLean Group</a>
+                </h3>
+                <p class="news-excerpt">
+                    Monthly insights and analysis on mergers and acquisitions in the government contracting sector.
+                </p>
+            </article>
+
+            <!-- Insight 3 -->
+            <article class="news-item">
+                <h3 class="news-headline">
+                    <a href="#">A Potential Fundraising Boost for Venture Capital Investing: U.S. House Passes INVEST Act</a>
+                </h3>
+                <p class="news-excerpt">
+                    On December 11, 2025, the U.S. House of Representatives passed the Incentivizing New Ventures and Economic Strength Through Capital Formation Act ("INVEST Act") by a bipartisan vote of 302 to 123.
+                </p>
+            </article>
+        </div>
+
+        <!-- Right Sidebar: FMI Widget -->
+        <aside class="sidebar">
+            <div class="fmi-widget">
+                <div class="fmi-header">
+                    <div class="fmi-title">
+                        Federal Market Index<br>(FMI)
+                        <span class="fmi-info-icon" onclick="openFMIModal()">i</span>
+                    </div>
+                    <div class="fmi-value">191.58</div>
+                    <div class="fmi-change">↓ -0.82 (-0.43%)</div>
+
+                    <!-- Market Comparisons -->
+                    <div class="fmi-comparisons">
+                        <div class="fmi-comparisons-title">Market Comparisons</div>
+                        
+                        <div class="comparison-item">
+                            <div class="comparison-ticker">
+                                XAR
+                                <span class="tooltip">State Street SPDR S&P Aerospace and Defense ETF</span>
+                            </div>
+                            <div class="comparison-data">
+                                <div class="comparison-price" id="xar-price">--</div>
+                                <div class="comparison-change" id="xar-change">--</div>
+                            </div>
+                        </div>
+
+                        <div class="comparison-item">
+                            <div class="comparison-ticker">
+                                SPY
+                                <span class="tooltip">State Street SPDR S&P 500 Trust ETF</span>
+                            </div>
+                            <div class="comparison-data">
+                                <div class="comparison-price" id="spy-price">--</div>
+                                <div class="comparison-change" id="spy-change">--</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="fmi-meta">
+                        <small>As of: <span id="fmi-timestamp">--</span></small>
+                    </div>
+                    <button class="refresh-button" id="refresh-stocks">
+                        <span>🔄</span> Refresh Prices
+                    </button>
+                    <div id="fetch-progress"></div>
+                </div>
+
+                <div class="companies-section">
+                    <div class="companies-title">FMI Companies</div>
+                    
+                    <div class="company-item">
+                        <div class="company-info">
+                            <div class="company-ticker">LMT</div>
+                            <div class="company-name">Lockheed Martin</div>
+                        </div>
+                        <div class="company-price">
+                            <div class="price-value">$597.27</div>
+                            <div class="price-change up">↑ +2.32 (+0.39%)</div>
+                        </div>
+                    </div>
+
+                    <div class="company-item">
+                        <div class="company-info">
+                            <div class="company-ticker">RTX</div>
+                            <div class="company-name">RTX Corporation</div>
+                        </div>
+                        <div class="company-price">
+                            <div class="price-value">$199.46</div>
+                            <div class="price-change down">↓ -1.82 (-0.90%)</div>
+                        </div>
+                    </div>
+
+                    <div class="company-item">
+                        <div class="company-info">
+                            <div class="company-ticker">BA</div>
+                            <div class="company-name">Boeing</div>
+                        </div>
+                        <div class="company-price">
+                            <div class="price-value">$241.59</div>
+                            <div class="price-change down">↓ -2.97 (-1.21%)</div>
+                        </div>
+                    </div>
+
+                    <div class="company-item">
+                        <div class="company-info">
+                            <div class="company-ticker">NOC</div>
+                            <div class="company-name">Northrop Grumman</div>
+                        </div>
+                        <div class="company-price">
+                            <div class="price-value">$689.13</div>
+                            <div class="price-change up">↑ +10.39 (+1.53%)</div>
+                        </div>
+                    </div>
+
+                    <div class="company-item">
+                        <div class="company-info">
+                            <div class="company-ticker">GD</div>
+                            <div class="company-name">General Dynamics</div>
+                        </div>
+                        <div class="company-price">
+                            <div class="price-value">$356.68</div>
+                            <div class="price-change down">↓ -9.94 (-2.71%)</div>
+                        </div>
+                    </div>
+                    <div class="company-item">
+                        <div class="company-info">
+                            <div class="company-ticker">UNH</div>
+                            <div class="company-name">UnitedHealth Group</div>
+                        </div>
+                        <div class="company-price">
+                            <div class="price-value">--</div>
+                            <div class="price-change">--</div>
+                        </div>
+                    </div>
+
+                    <div class="company-item">
+                        <div class="company-info">
+                            <div class="company-ticker">LDOS</div>
+                            <div class="company-name">Leidos Holdings</div>
+                        </div>
+                        <div class="company-price">
+                            <div class="price-value">--</div>
+                            <div class="price-change">--</div>
+                        </div>
+                    </div>
+
+                    <div class="company-item">
+                        <div class="company-info">
+                            <div class="company-ticker">LHX</div>
+                            <div class="company-name">L3Harris Technologies</div>
+                        </div>
+                        <div class="company-price">
+                            <div class="price-value">--</div>
+                            <div class="price-change">--</div>
+                        </div>
+                    </div>
+
+                    <div class="company-item">
+                        <div class="company-info">
+                            <div class="company-ticker">MCK</div>
+                            <div class="company-name">McKesson</div>
+                        </div>
+                        <div class="company-price">
+                            <div class="price-value">--</div>
+                            <div class="price-change">--</div>
+                        </div>
+                    </div>
+
+                    <div class="company-item">
+                        <div class="company-info">
+                            <div class="company-ticker">HII</div>
+                            <div class="company-name">Huntington Ingalls Industries</div>
+                        </div>
+                        <div class="company-price">
+                            <div class="price-value">--</div>
+                            <div class="price-change">--</div>
+                        </div>
+                    </div>
+
+                    <div class="company-item">
+                        <div class="company-info">
+                            <div class="company-ticker">BAH</div>
+                            <div class="company-name">Booz Allen Hamilton Holding</div>
+                        </div>
+                        <div class="company-price">
+                            <div class="price-value">--</div>
+                            <div class="price-change">--</div>
+                        </div>
+                    </div>
+
+                    <div class="company-item">
+                        <div class="company-info">
+                            <div class="company-ticker">BAESY</div>
+                            <div class="company-name">BAE Systems</div>
+                        </div>
+                        <div class="company-price">
+                            <div class="price-value">--</div>
+                            <div class="price-change">--</div>
+                        </div>
+                    </div>
+
+                    <div class="company-item">
+                        <div class="company-info">
+                            <div class="company-ticker">HUM</div>
+                            <div class="company-name">Humana Government Business</div>
+                        </div>
+                        <div class="company-price">
+                            <div class="price-value">--</div>
+                            <div class="price-change">--</div>
+                        </div>
+                    </div>
+
+                    <div class="company-item">
+                        <div class="company-info">
+                            <div class="company-ticker">HON</div>
+                            <div class="company-name">Honeywell International</div>
+                        </div>
+                        <div class="company-price">
+                            <div class="price-value">--</div>
+                            <div class="price-change">--</div>
+                        </div>
+                    </div>
+
+                    <div class="company-item">
+                        <div class="company-info">
+                            <div class="company-ticker">FLR</div>
+                            <div class="company-name">Fluor</div>
+                        </div>
+                        <div class="company-price">
+                            <div class="price-value">--</div>
+                            <div class="price-change">--</div>
+                        </div>
+                    </div>
+
+                    <div class="company-item">
+                        <div class="company-info">
+                            <div class="company-ticker">COR</div>
+                            <div class="company-name">AmerisourceBergen</div>
+                        </div>
+                        <div class="company-price">
+                            <div class="price-value">--</div>
+                            <div class="price-change">--</div>
+                        </div>
+                    </div>
+
+                    <div class="company-item">
+                        <div class="company-info">
+                            <div class="company-ticker">SAIC</div>
+                            <div class="company-name">Science Applications International</div>
+                        </div>
+                        <div class="company-price">
+                            <div class="price-value">--</div>
+                            <div class="price-change">--</div>
+                        </div>
+                    </div>
+
+                    <div class="company-item">
+                        <div class="company-info">
+                            <div class="company-ticker">AMTM</div>
+                            <div class="company-name">Amentum Government Services Holdings</div>
+                        </div>
+                        <div class="company-price">
+                            <div class="price-value">--</div>
+                            <div class="price-change">--</div>
+                        </div>
+                    </div>
+
+                    <div class="company-item">
+                        <div class="company-info">
+                            <div class="company-ticker">CACI</div>
+                            <div class="company-name">CACI International</div>
+                        </div>
+                        <div class="company-price">
+                            <div class="price-value">--</div>
+                            <div class="price-change">--</div>
+                        </div>
+                    </div>
+
+                    <div class="company-item">
+                        <div class="company-info">
+                            <div class="company-ticker">ACN</div>
+                            <div class="company-name">Accenture</div>
+                        </div>
+                        <div class="company-price">
+                            <div class="price-value">--</div>
+                            <div class="price-change">--</div>
+                        </div>
+                    </div>
+
+                    <div class="company-item">
+                        <div class="company-info">
+                            <div class="company-ticker">DELL</div>
+                            <div class="company-name">Dell Technologies</div>
+                        </div>
+                        <div class="company-price">
+                            <div class="price-value">--</div>
+                            <div class="price-change">--</div>
+                        </div>
+                    </div>
+
+                    <div class="company-item">
+                        <div class="company-info">
+                            <div class="company-ticker">GE</div>
+                            <div class="company-name">General Electric</div>
+                        </div>
+                        <div class="company-price">
+                            <div class="price-value">--</div>
+                            <div class="price-change">--</div>
+                        </div>
+                    </div>
+
+                    <div class="company-item">
+                        <div class="company-info">
+                            <div class="company-ticker">MRK</div>
+                            <div class="company-name">Merck</div>
+                        </div>
+                        <div class="company-price">
+                            <div class="price-value">--</div>
+                            <div class="price-change">--</div>
+                        </div>
+                    </div>
+
+                    <div class="company-item">
+                        <div class="company-info">
+                            <div class="company-ticker">KBR</div>
+                            <div class="company-name">KBR</div>
+                        </div>
+                        <div class="company-price">
+                            <div class="price-value">--</div>
+                            <div class="price-change">--</div>
+                        </div>
+                    </div>
+
+                    <div class="company-item">
+                        <div class="company-info">
+                            <div class="company-ticker">J</div>
+                            <div class="company-name">Jacobs Solutions</div>
+                        </div>
+                        <div class="company-price">
+                            <div class="price-value">--</div>
+                            <div class="price-change">--</div>
+                        </div>
+                    </div>
+
+                    <div class="company-item">
+                        <div class="company-info">
+                            <div class="company-ticker">PSN</div>
+                            <div class="company-name">Parsons</div>
+                        </div>
+                        <div class="company-price">
+                            <div class="price-value">--</div>
+                            <div class="price-change">--</div>
+                        </div>
+                    </div>
+
+                    <div class="company-item">
+                        <div class="company-info">
+                            <div class="company-ticker">TXT</div>
+                            <div class="company-name">Textron</div>
+                        </div>
+                        <div class="company-price">
+                            <div class="price-value">--</div>
+                            <div class="price-change">--</div>
+                        </div>
+                    </div>
+
+                    <div class="company-item">
+                        <div class="company-info">
+                            <div class="company-ticker">MMS</div>
+                            <div class="company-name">Maximus</div>
+                        </div>
+                        <div class="company-price">
+                            <div class="price-value">--</div>
+                            <div class="price-change">--</div>
+                        </div>
+                    </div>
+
+                    <div class="company-item">
+                        <div class="company-info">
+                            <div class="company-ticker">SNY</div>
+                            <div class="company-name">Sanofi</div>
+                        </div>
+                        <div class="company-price">
+                            <div class="price-value">--</div>
+                            <div class="price-change">--</div>
+                        </div>
+                    </div>
+
+                    <div class="company-item">
+                        <div class="company-info">
+                            <div class="company-ticker">FDX</div>
+                            <div class="company-name">FedEx</div>
+                        </div>
+                        <div class="company-price">
+                            <div class="price-value">--</div>
+                            <div class="price-change">--</div>
+                        </div>
+                    </div>
+
+                    <div class="company-item">
+                        <div class="company-info">
+                            <div class="company-ticker">OSK</div>
+                            <div class="company-name">Oshkosh</div>
+                        </div>
+                        <div class="company-price">
+                            <div class="price-value">--</div>
+                            <div class="price-change">--</div>
+                        </div>
+                    </div>
+
+                    <div class="company-item">
+                        <div class="company-info">
+                            <div class="company-ticker">DRS</div>
+                            <div class="company-name">Leonardo</div>
+                        </div>
+                        <div class="company-price">
+                            <div class="price-value">--</div>
+                            <div class="price-change">--</div>
+                        </div>
+                    </div>
+
+                    <div class="company-item">
+                        <div class="company-info">
+                            <div class="company-ticker">T</div>
+                            <div class="company-name">AT&T</div>
+                        </div>
+                        <div class="company-price">
+                            <div class="price-value">--</div>
+                            <div class="price-change">--</div>
+                        </div>
+                    </div>
+
+                    <div class="company-item">
+                        <div class="company-info">
+                            <div class="company-ticker">VVX</div>
+                            <div class="company-name">Vectrus</div>
+                        </div>
+                        <div class="company-price">
+                            <div class="price-value">--</div>
+                            <div class="price-change">--</div>
+                        </div>
+                    </div>
+
+                    <div class="company-item">
+                        <div class="company-info">
+                            <div class="company-ticker">PFE</div>
+                            <div class="company-name">Pfizer</div>
+                        </div>
+                        <div class="company-price">
+                            <div class="price-value">--</div>
+                            <div class="price-change">--</div>
+                        </div>
+                    </div>
+
+                    <div class="company-item">
+                        <div class="company-info">
+                            <div class="company-ticker">IBM</div>
+                            <div class="company-name">International Business Machines</div>
+                        </div>
+                        <div class="company-price">
+                            <div class="price-value">--</div>
+                            <div class="price-change">--</div>
+                        </div>
+                    </div>
+
+                    <div class="company-item">
+                        <div class="company-info">
+                            <div class="company-ticker">GIB</div>
+                            <div class="company-name">CGI</div>
+                        </div>
+                        <div class="company-price">
+                            <div class="price-value">--</div>
+                            <div class="price-change">--</div>
+                        </div>
+                    </div>
+
+                    <div class="company-item">
+                        <div class="company-info">
+                            <div class="company-ticker">GSK</div>
+                            <div class="company-name">GlaxoSmithKline</div>
+                        </div>
+                        <div class="company-price">
+                            <div class="price-value">--</div>
+                            <div class="price-change">--</div>
+                        </div>
+                    </div>
+
+                    <div class="company-item">
+                        <div class="company-info">
+                            <div class="company-ticker">ACM</div>
+                            <div class="company-name">AECOM</div>
+                        </div>
+                        <div class="company-price">
+                            <div class="price-value">--</div>
+                            <div class="price-change">--</div>
+                        </div>
+                    </div>
+
+                    <div class="company-item">
+                        <div class="company-info">
+                            <div class="company-ticker">VLO</div>
+                            <div class="company-name">Valero Energy</div>
+                        </div>
+                        <div class="company-price">
+                            <div class="price-value">--</div>
+                            <div class="price-change">--</div>
+                        </div>
+                    </div>
+
+                    <div class="company-item">
+                        <div class="company-info">
+                            <div class="company-ticker">GEO</div>
+                            <div class="company-name">The GEO Group</div>
+                        </div>
+                        <div class="company-price">
+                            <div class="price-value">--</div>
+                            <div class="price-change">--</div>
+                        </div>
+                    </div>
+
+                    <div class="company-item">
+                        <div class="company-info">
+                            <div class="company-ticker">OLN</div>
+                            <div class="company-name">Olin</div>
+                        </div>
+                        <div class="company-price">
+                            <div class="price-value">--</div>
+                            <div class="price-change">--</div>
+                        </div>
+                    </div>
+
+                    <div class="company-item">
+                        <div class="company-info">
+                            <div class="company-ticker">BP</div>
+                            <div class="company-name">BP Products North America</div>
+                        </div>
+                        <div class="company-price">
+                            <div class="price-value">--</div>
+                            <div class="price-change">--</div>
+                        </div>
+                    </div>
+
+                    <div class="company-item">
+                        <div class="company-info">
+                            <div class="company-ticker">FCN</div>
+                            <div class="company-name">FCN</div>
+                        </div>
+                        <div class="company-price">
+                            <div class="price-value">--</div>
+                            <div class="price-change">--</div>
+                        </div>
+                    </div>
+
+                    <div class="company-item">
+                        <div class="company-info">
+                            <div class="company-ticker">RYCEY</div>
+                            <div class="company-name">Rolls-Royce Holdings</div>
+                        </div>
+                        <div class="company-price">
+                            <div class="price-value">--</div>
+                            <div class="price-change">--</div>
+                        </div>
+                    </div>
+
+                    <div class="company-item">
+                        <div class="company-info">
+                            <div class="company-ticker">ORCL</div>
+                            <div class="company-name">Oracle</div>
+                        </div>
+                        <div class="company-price">
+                            <div class="price-value">--</div>
+                            <div class="price-change">--</div>
+                        </div>
+                    </div>
+
+                    <div style="text-align: center; padding: 1rem 0; color: var(--dark-gray); font-size: 0.875rem;">
+                        All 46 FMI Companies Listed
+                    </div>
+                </div>
+            </div>
+        </aside>
+    </div>
+    
+    <!-- FMI Info Modal -->
+    <div id="fmiModal" class="fmi-modal" onclick="closeFMIModal(event)">
+        <div class="fmi-modal-content" onclick="event.stopPropagation()">
+            <span class="fmi-modal-close" onclick="closeFMIModal()">&times;</span>
+            <h3>About the Federal Market Index (FMI)</h3>
+            <p>
+                The FMI is a real-time stock index that tracks 46 publicly traded companies selected from the Sam.gov list of FY24 Top 100 Contractors, utilizing the most current data available. These companies collectively represent approximately 72% of the total contract value awarded to the top 100 contractors.
+            </p>
+            <p>
+                Each entity within the index receives a proprietary weighting according to the significance of U.S. federal contract awards to its overall business operations.
+            </p>
+            <p>
+                The FMI serves as an economic indicator - a barometer - intended to offer insights into the federal contracting landscape rather than to function as a tool for selecting individual stocks or guiding investment decisions.
+            </p>
+        </div>
+    </div>
+    
+    <script>
+// FMI Modal Functions
+function openFMIModal() {
+    document.getElementById('fmiModal').style.display = 'block';
+}
+
+function closeFMIModal(event) {
+    if (!event || event.target.id === 'fmiModal') {
+        document.getElementById('fmiModal').style.display = 'none';
+    }
+}
+
+// AlphaVantage API Configuration
+const ALPHA_VANTAGE_API_KEY = 'EYNDGBA0OOVL7UK3';
+const API_BASE_URL = 'https://www.alphavantage.co/query';
+
+// All 46 FMI Companies with their weights
+const FMI_COMPANIES = [
+    { ticker: 'LMT', name: 'Lockheed Martin', weight: 36.06 },
+    { ticker: 'RTX', name: 'RTX', weight: 9.53 },
+    { ticker: 'BA', name: 'Boeing', weight: 13.34 },
+    { ticker: 'NOC', name: 'Northrop Grumman', weight: 20.02 },
+    { ticker: 'GD', name: 'General Dynamics', weight: 20.82 },
+    { ticker: 'UNH', name: 'UnitedHealth Group', weight: 7.12 },
+    { ticker: 'LDOS', name: 'Leidos Holdings', weight: 49.32 },
+    { ticker: 'LHX', name: 'L3Harris Technologies', weight: 14.29 },
+    { ticker: 'MCK', name: 'McKesson', weight: 8.87 },
+    { ticker: 'HII', name: 'Huntington Ingalls Industries', weight: 53.3 },
+    { ticker: 'BAH', name: 'Booz Allen Hamilton Holding', weight: 79.01 },
+    { ticker: 'BAESY', name: 'BAE Systems', weight: 14.05 },
+    { ticker: 'HUM', name: 'Humana Government Business', weight: 34.19 },
+    { ticker: 'HON', name: 'Honeywell International', weight: 5.32 },
+    { ticker: 'FLR', name: 'Fluor', weight: 85.75 },
+    { ticker: 'COR', name: 'AmerisourceBergen', weight: 38.87 },
+    { ticker: 'SAIC', name: 'Science Applications International', weight: 117.73 },
+    { ticker: 'AMTM', name: 'Amentum Government Services Holdings', weight: 59.55 },
+    { ticker: 'CACI', name: 'CACI International', weight: 32.83 },
+    { ticker: 'ACN', name: 'Accenture', weight: 2.16 },
+    { ticker: 'DELL', name: 'Dell Technologies', weight: 4.41 },
+    { ticker: 'GE', name: 'General Electric', weight: 0.96 },
+    { ticker: 'MRK', name: 'Merck', weight: 1.07 },
+    { ticker: 'KBR', name: 'KBR', weight: 48.96 },
+    { ticker: 'J', name: 'Jacobs Solutions', weight: 16.19 },
+    { ticker: 'PSN', name: 'Parsons', weight: 33.83 },
+    { ticker: 'TXT', name: 'Textron', weight: 16.22 },
+    { ticker: 'MMS', name: 'Maximus', weight: 33.70 },
+    { ticker: 'SNY', name: 'Sanofi', weight: 1.42 },
+    { ticker: 'FDX', name: 'FedEx', weight: 2.08 },
+    { ticker: 'OSK', name: 'Oshkosh', weight: 16.04 },
+    { ticker: 'DRS', name: 'Leonardo', weight: 12.94 },
+    { ticker: 'T', name: 'AT&T', weight: 0.78 },
+    { ticker: 'VVX', name: 'Vectrus', weight: 65.04 },
+    { ticker: 'PFE', name: 'Pfizer', weight: 0.91 },
+    { ticker: 'IBM', name: 'International Business Machines', weight: 0.47 },
+    { ticker: 'GIB', name: 'CGI', weight: 6.52 },
+    { ticker: 'GSK', name: 'GlaxoSmithKline', weight: 1.12 },
+    { ticker: 'ACM', name: 'AECOM', weight: 8.95 },
+    { ticker: 'VLO', name: 'Valero Energy', weight: 1.83 },
+    { ticker: 'GEO', name: 'The GEO Group', weight: 45.95 },
+    { ticker: 'OLN', name: 'Olin', weight: 40.56 },
+    { ticker: 'BP', name: 'BP Products North America', weight: 1.00 },
+    { ticker: 'FCN', name: 'FCN', weight: 18.73 },
+    { ticker: 'RYCEY', name: 'Rolls-Royce Holdings', weight: 0.96 },
+    { ticker: 'ORCL', name: 'Oracle', weight: 0.20 }
+];
+
+// Fetch stock quote from AlphaVantage with premium 15-minute delayed data
+async function fetchStockQuote(ticker) {
+    try {
+        // Use TIME_SERIES_INTRADAY with 5min interval and entitlement=delayed
+        const url = `${API_BASE_URL}?function=TIME_SERIES_INTRADAY&symbol=${ticker}&interval=5min&entitlement=delayed&apikey=${ALPHA_VANTAGE_API_KEY}`;
+        const response = await fetch(url);
+        const data = await response.json();
+        
+        if (data['Time Series (5min)']) {
+            const timeSeries = data['Time Series (5min)'];
+            // Get the most recent timestamp
+            const timestamps = Object.keys(timeSeries);
+            const latestTimestamp = timestamps[0]; // Most recent is first
+            const latestData = timeSeries[latestTimestamp];
+            
+            const currentPrice = parseFloat(latestData['4. close']);
+            const previousPrice = timestamps.length > 1 ? parseFloat(timeSeries[timestamps[1]]['4. close']) : currentPrice;
+            const change = currentPrice - previousPrice;
+            const changePercent = (change / previousPrice) * 100;
+            
+            return {
+                ticker: ticker,
+                price: currentPrice,
+                change: change,
+                changePercent: changePercent,
+                timestamp: latestTimestamp,
+                success: true
+            };
+        } else {
+            console.error(`No data for ${ticker}:`, data);
+            return { ticker, success: false, error: data.Note || data['Error Message'] || 'No data available' };
+        }
+    } catch (error) {
+        console.error(`Error fetching ${ticker}:`, error);
+        return { ticker, success: false, error: error.message };
+    }
+}
+
+// Delay function to respect rate limits
+function delay(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+// Fetch all stock quotes with rate limiting
+async function fetchAllStocks() {
+    const results = [];
+    const totalStocks = FMI_COMPANIES.length;
+    
+    updateProgress(0, totalStocks);
+    
+    for (let i = 0; i < FMI_COMPANIES.length; i++) {
+        const company = FMI_COMPANIES[i];
+        console.log(`Fetching ${i + 1}/${totalStocks}: ${company.ticker}`);
+        
+        const quote = await fetchStockQuote(company.ticker);
+        results.push({
+            ...company,
+            ...quote
+        });
+        
+        updateProgress(i + 1, totalStocks);
+        
+        if (quote.success) {
+            updateCompanyDisplay(company.ticker, quote);
+        }
+        
+        // Delay between requests - Premium plan allows 75/min, we'll use 1 second delay to be safe
+        if (i < FMI_COMPANIES.length - 1) {
+            await delay(1000); // 1 second = 60 requests per minute
+        }
+    }
+    
+    // Calculate and update FMI after all stocks are fetched
+    const fmiResult = calculateFMI(results);
+    updateFMIDisplay(fmiResult.value);
+    
+    console.log(`FMI Index: ${fmiResult.value.toFixed(2)} (based on ${fmiResult.successfulStocks} stocks)`);
+    
+    // Fetch comparison ETFs (XAR and SPY)
+    await fetchComparisonETFs();
+    
+    return results;
+}
+
+// Update progress indicator
+function updateProgress(current, total) {
+    const progressElement = document.getElementById('fetch-progress');
+    if (progressElement) {
+        if (current === total) {
+            const now = new Date();
+            const timeStr = now.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' });
+            progressElement.textContent = `All prices updated! (${timeStr} - 15min delayed)`;
+            setTimeout(() => {
+                progressElement.style.display = 'none';
+            }, 5000);
+        } else {
+            progressElement.style.display = 'block';
+            progressElement.textContent = `Loading prices... ${current}/${total}`;
+        }
+    }
+}
+
+// Update company display in the sidebar
+function updateCompanyDisplay(ticker, quote) {
+    const companyItems = document.querySelectorAll('.company-item');
+    
+    companyItems.forEach(item => {
+        const tickerElement = item.querySelector('.company-ticker');
+        if (tickerElement && tickerElement.textContent === ticker) {
+            const priceValueElement = item.querySelector('.price-value');
+            const priceChangeElement = item.querySelector('.price-change');
+            
+            if (priceValueElement) {
+                priceValueElement.textContent = `$${quote.price.toFixed(2)}`;
+            }
+            
+            if (priceChangeElement) {
+                const isPositive = quote.change >= 0;
+                priceChangeElement.className = `price-change ${isPositive ? 'up' : 'down'}`;
+                priceChangeElement.textContent = `${isPositive ? '↑' : '↓'} ${isPositive ? '+' : ''}${quote.change.toFixed(2)} (${isPositive ? '+' : ''}${quote.changePercent.toFixed(2)}%)`;
+            }
+        }
+    });
+}
+
+// Calculate FMI Index
+// Formula: Sum of (Stock Price × Weight%) for all 46 companies, divided by 10
+function calculateFMI(stockData) {
+    let weightedSum = 0;
+    let successfulStocks = 0;
+    
+    stockData.forEach(stock => {
+        if (stock.success && stock.price) {
+            const company = FMI_COMPANIES.find(c => c.ticker === stock.ticker);
+            if (company) {
+                const weightedPrice = stock.price * (company.weight / 100);
+                weightedSum += weightedPrice;
+                successfulStocks++;
+            }
+        }
+    });
+    
+    const fmiValue = weightedSum / 10;
+    
+    console.log(`FMI Calculation: ${successfulStocks}/46 stocks, weighted sum: ${weightedSum.toFixed(2)}, FMI: ${fmiValue.toFixed(2)}`);
+    
+    return {
+        value: fmiValue,
+        successfulStocks: successfulStocks
+    };
+}
+
+// Update FMI display
+function updateFMIDisplay(fmiValue, previousFMI = null) {
+    const fmiValueElement = document.querySelector('.fmi-value');
+    const fmiChangeElement = document.querySelector('.fmi-change');
+    
+    if (fmiValueElement) {
+        fmiValueElement.textContent = fmiValue.toFixed(2);
+    }
+    
+    if (fmiChangeElement && previousFMI !== null) {
+        const change = fmiValue - previousFMI;
+        const changePercent = (change / previousFMI) * 100;
+        const isPositive = change >= 0;
+        
+        fmiChangeElement.className = `fmi-change ${isPositive ? 'positive' : ''}`;
+        fmiChangeElement.style.color = isPositive ? 'var(--green)' : 'var(--red)';
+        fmiChangeElement.textContent = `${isPositive ? '↑' : '↓'} ${isPositive ? '+' : ''}${change.toFixed(2)} (${isPositive ? '+' : ''}${changePercent.toFixed(2)}%)`;
+    }
+    
+    // Update timestamp
+    const timestampElement = document.getElementById('fmi-timestamp');
+    if (timestampElement) {
+        const now = new Date();
+        timestampElement.textContent = now.toLocaleString('en-US', { 
+            month: 'short', 
+            day: 'numeric', 
+            year: 'numeric',
+            hour: 'numeric',
+            minute: '2-digit'
+        }) + ' (15-min delayed)';
+    }
+}
+
+// Fetch and update comparison ETFs (XAR and SPY)
+async function fetchComparisonETFs() {
+    const etfs = ['XAR', 'SPY'];
+    
+    for (const ticker of etfs) {
+        try {
+            const quote = await fetchStockQuote(ticker);
+            if (quote.success) {
+                updateComparisonDisplay(ticker, quote);
+            }
+        } catch (error) {
+            console.error(`Error fetching ${ticker}:`, error);
+        }
+    }
+}
+
+// Update comparison ETF display
+function updateComparisonDisplay(ticker, quote) {
+    const priceElement = document.getElementById(`${ticker.toLowerCase()}-price`);
+    const changeElement = document.getElementById(`${ticker.toLowerCase()}-change`);
+    
+    if (priceElement) {
+        priceElement.textContent = `$${quote.price.toFixed(2)}`;
+    }
+    
+    if (changeElement) {
+        const isPositive = quote.change >= 0;
+        changeElement.className = `comparison-change ${isPositive ? 'up' : 'down'}`;
+        changeElement.textContent = `${isPositive ? '↑' : '↓'} ${isPositive ? '+' : ''}${quote.change.toFixed(2)} (${isPositive ? '+' : ''}${quote.changePercent.toFixed(2)}%)`;
+    }
+}
+
+// Update FMI display
+function updateFMIDisplay(fmiValue, previousFMI = null) {
+    const fmiValueElement = document.querySelector('.fmi-value');
+    const fmiChangeElement = document.querySelector('.fmi-change');
+    
+    if (fmiValueElement) {
+        fmiValueElement.textContent = fmiValue.toFixed(2);
+    }
+    
+    if (fmiChangeElement && previousFMI !== null) {
+        const change = fmiValue - previousFMI;
+        const changePercent = (change / previousFMI) * 100;
+        const isPositive = change >= 0;
+        
+        fmiChangeElement.className = `fmi-change ${isPositive ? 'positive' : ''}`;
+        fmiChangeElement.style.color = isPositive ? 'var(--green)' : 'var(--red)';
+        fmiChangeElement.textContent = `${isPositive ? '↑' : '↓'} ${isPositive ? '+' : ''}${change.toFixed(2)} (${isPositive ? '+' : ''}${changePercent.toFixed(2)}%)`;
+    }
+}
+
+// Update company display in the sidebar
+function updateCompanyDisplay(ticker, quote) {
+    const companyItems = document.querySelectorAll('.company-item');
+    
+    companyItems.forEach(item => {
+        const tickerElement = item.querySelector('.company-ticker');
+        if (tickerElement && tickerElement.textContent === ticker) {
+            const priceValueElement = item.querySelector('.price-value');
+            const priceChangeElement = item.querySelector('.price-change');
+            
+            if (priceValueElement) {
+                priceValueElement.textContent = `$${quote.price.toFixed(2)}`;
+            }
+            
+            if (priceChangeElement) {
+                const isPositive = quote.change >= 0;
+                priceChangeElement.className = `price-change ${isPositive ? 'up' : 'down'}`;
+                priceChangeElement.textContent = `${isPositive ? '↑' : '↓'} ${isPositive ? '+' : ''}${quote.change.toFixed(2)} (${isPositive ? '+' : ''}${quote.changePercent.toFixed(2)}%)`;
+            }
+        }
+    });
+}
+
+// Initialize on page load
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('Stock data fetcher initialized');
+    
+    const refreshButton = document.getElementById('refresh-stocks');
+    if (refreshButton) {
+        refreshButton.addEventListener('click', function() {
+            this.disabled = true;
+            this.textContent = 'Updating...';
+            
+            fetchAllStocks().then(results => {
+                console.log('All stocks fetched:', results);
+                this.disabled = false;
+                this.textContent = '🔄 Refresh Prices';
+                
+                localStorage.setItem('fmiStockData', JSON.stringify({
+                    data: results,
+                    timestamp: Date.now()
+                }));
+            });
+        });
+    }
+    
+    // Check if we have cached data (less than 15 minutes old)
+    const cachedData = localStorage.getItem('fmiStockData');
+    if (cachedData) {
+        const { data, timestamp } = JSON.parse(cachedData);
+        const ageMinutes = (Date.now() - timestamp) / 1000 / 60;
+        
+        if (ageMinutes < 15) {
+            console.log('Using cached data (age: ' + ageMinutes.toFixed(1) + ' minutes)');
+            data.forEach(stock => {
+                if (stock.success) {
+                    updateCompanyDisplay(stock.ticker, stock);
+                }
+            });
+            
+            // Calculate and display FMI from cached data
+            const fmiResult = calculateFMI(data);
+            updateFMIDisplay(fmiResult.value);
+            console.log(`FMI Index (from cache): ${fmiResult.value.toFixed(2)}`);
+            
+            // Fetch fresh comparison ETFs even with cached FMI data
+            fetchComparisonETFs();
+            
+            return;
+        }
+    }
+    
+    console.log('No recent data. Click "Refresh Prices" to load stock data.');
+});
+    </script>
+</body>
+</html>
