@@ -1,0 +1,1844 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GovCon Deal Flow - To Inform, Prepare, Connect</title>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #1e3a5f;
+            --accent-blue: #2563eb;
+            --light-gray: #f5f7fa;
+            --medium-gray: #e5e7eb;
+            --dark-gray: #374151;
+            --text-dark: #1f2937;
+            --border-color: #d1d5db;
+            --green: #059669;
+            --red: #dc2626;
+            --sponsor-bg: #fef3c7;
+            --sponsor-border: #f59e0b;
+        }
+
+        body {
+            font-family: 'Work Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--text-dark);
+            background-color: #ffffff;
+            line-height: 1.6;
+        }
+
+        .header {
+            background: white;
+            padding: 1.5rem 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .logo-image {
+            height: 70px;
+            width: auto;
+            max-width: 100%;
+        }
+
+        .tagline {
+            font-size: 1rem;
+            color: var(--dark-gray);
+            font-style: italic;
+            margin-left: 0;
+            margin-top: 0.25rem;
+        }
+
+        .top-nav {
+            display: flex;
+            justify-content: flex-end;
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+
+        .top-nav a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .nav-bar {
+            background: var(--light-gray);
+            border-bottom: 1px solid var(--border-color);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .nav-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: center;
+            gap: 5rem;
+        }
+
+        .nav-content a {
+            padding: 1rem 0;
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 600;
+            font-size: 1rem;
+            border-bottom: 3px solid transparent;
+            transition: all 0.2s;
+        }
+
+        .nav-content a:hover {
+            color: var(--accent-blue);
+            border-bottom-color: var(--accent-blue);
+        }
+
+        .main-container {
+            max-width: 1400px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+        }
+
+        .news-column {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .section-title {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            color: var(--primary-blue);
+        }
+
+        .news-item {
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 1.5rem;
+        }
+
+        .news-tag {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: var(--accent-blue);
+            color: white;
+            font-size: 0.75rem;
+            font-weight: 600;
+            border-radius: 3px;
+            margin-right: 0.75rem;
+        }
+
+        .news-date {
+            color: var(--dark-gray);
+            font-size: 0.875rem;
+        }
+
+        .news-headline {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin: 0.5rem 0;
+            color: var(--text-dark);
+            line-height: 1.4;
+        }
+
+        .news-headline a {
+            color: var(--text-dark);
+            text-decoration: none;
+        }
+
+        .news-headline a:hover {
+            color: var(--accent-blue);
+        }
+
+        .news-excerpt {
+            color: var(--dark-gray);
+            font-size: 0.95rem;
+            margin: 0.5rem 0;
+            line-height: 1.6;
+        }
+
+        .news-source {
+            color: var(--dark-gray);
+            font-size: 0.875rem;
+            font-style: italic;
+        }
+
+        /* SPONSOR CONTENT BLOCK */
+        .sponsor-block {
+            background: linear-gradient(135deg, #f0f4f8 0%, #e8edf2 100%);
+            border: 2px solid #6b7280;
+            border-radius: 8px;
+            padding: 1.35rem;
+            margin: 2rem 0;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(107, 114, 128, 0.15);
+        }
+
+        .sponsor-label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #374151;
+            margin-bottom: 0.65rem;
+            text-align: left;
+        }
+
+        .sponsor-headline {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin-bottom: 0.65rem;
+            line-height: 1.3;
+        }
+
+        .sponsor-text {
+            color: var(--dark-gray);
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .sponsor-cta {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background: var(--primary-blue);
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+
+        .sponsor-cta:hover {
+            background: var(--accent-blue);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+        }
+
+        /* NEWSLETTER BLOCK */
+        .newsletter-block {
+            background: linear-gradient(135deg, #e8edf2 0%, #f0f4f8 100%);
+            border: 2px solid #d1d5db;
+            border-radius: 8px;
+            padding: 1.25rem;
+            margin: 2rem 0;
+            color: var(--text-dark);
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .newsletter-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: none;
+        }
+
+        .newsletter-headline {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            color: var(--primary-blue);
+        }
+
+        .newsletter-text {
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+            line-height: 1.5;
+            color: var(--dark-gray);
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 0.5rem;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .newsletter-input {
+            flex: 1;
+            padding: 0.875rem 1.25rem;
+            border: 2px solid var(--border-color);
+            border-radius: 5px;
+            font-size: 1rem;
+            background: white;
+            color: var(--text-dark);
+        }
+
+        .newsletter-input::placeholder {
+            color: var(--dark-gray);
+        }
+
+        .newsletter-button {
+            padding: 0.875rem 2rem;
+            background: var(--primary-blue);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .newsletter-button:hover {
+            background: var(--accent-blue);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+        }
+
+        .newsletter-note {
+            font-size: 0.75rem;
+            margin-top: 0.75rem;
+            color: var(--dark-gray);
+        }
+
+        /* RIGHT SIDEBAR */
+        .sidebar {
+            position: sticky;
+            top: 2rem;
+            height: fit-content;
+        }
+
+        .fmi-widget {
+            background: var(--light-gray);
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .fmi-header {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .fmi-title {
+            font-size: 1.1rem;
+            color: var(--dark-gray);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .fmi-info-icon {
+            cursor: pointer;
+            font-size: 1rem;
+            color: var(--accent-blue);
+            font-weight: bold;
+            border: 2px solid var(--accent-blue);
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+
+        .fmi-info-icon:hover {
+            background: var(--accent-blue);
+            color: white;
+        }
+
+        .fmi-modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+        }
+
+        .fmi-modal-content {
+            background-color: white;
+            margin: 10% auto;
+            padding: 2rem;
+            border-radius: 8px;
+            max-width: 600px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            position: relative;
+        }
+
+        .fmi-modal-close {
+            position: absolute;
+            right: 1rem;
+            top: 1rem;
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--dark-gray);
+            cursor: pointer;
+            line-height: 1;
+        }
+
+        .fmi-modal-close:hover {
+            color: var(--accent-blue);
+        }
+
+        .fmi-modal h3 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.5rem;
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+        }
+
+        .fmi-modal p {
+            line-height: 1.7;
+            color: var(--dark-gray);
+            margin-bottom: 1rem;
+        }
+
+        .fmi-value {
+            font-family: 'Crimson Pro', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+        }
+
+        .fmi-change {
+            color: var(--red);
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+
+        .fmi-change.positive {
+            color: var(--green);
+        }
+
+        .fmi-meta {
+            font-size: 0.75rem;
+            color: var(--dark-gray);
+            margin-top: 0.5rem;
+        }
+
+        .fmi-comparisons {
+            margin-top: 1.5rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--medium-gray);
+        }
+
+        .fmi-comparisons-title {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--dark-gray);
+            margin-bottom: 0.75rem;
+            text-align: center;
+        }
+
+        .comparison-item {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 0.4rem;
+            position: relative;
+            width: 48%;
+            text-align: center;
+        }
+
+        .comparison-ticker {
+            font-weight: 700;
+            color: var(--primary-blue);
+            font-size: 0.9rem;
+            cursor: help;
+            position: relative;
+            text-align: center;
+            margin-bottom: 0.25rem;
+        }
+
+        .comparison-ticker:hover .tooltip {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .tooltip {
+            visibility: hidden;
+            opacity: 0;
+            position: absolute;
+            bottom: 125%;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--text-dark);
+            color: white;
+            padding: 0.5rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: normal;
+            white-space: nowrap;
+            z-index: 1000;
+            transition: opacity 0.3s;
+        }
+
+        .tooltip::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: var(--text-dark) transparent transparent transparent;
+        }
+
+        .comparison-data {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .comparison-price {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .comparison-change {
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .comparison-change.up {
+            color: var(--green);
+        }
+
+        .comparison-change.down {
+            color: var(--red);
+        }
+
+        .refresh-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            width: 100%;
+            padding: 0.5rem;
+            background: white;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            color: var(--dark-gray);
+            font-size: 0.875rem;
+            cursor: pointer;
+            margin-top: 1rem;
+        }
+
+        .companies-section {
+            margin-top: 1.5rem;
+        }
+
+        .companies-title {
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .company-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--medium-gray);
+        }
+
+        .company-info {
+            flex: 1;
+        }
+
+        .company-ticker {
+            font-weight: 700;
+            color: var(--primary-blue);
+            font-size: 0.9rem;
+        }
+
+        .company-name {
+            font-size: 0.8rem;
+            color: var(--dark-gray);
+        }
+
+        .company-price {
+            text-align: right;
+        }
+
+        .price-value {
+            font-weight: 600;
+            color: var(--text-dark);
+            font-size: 0.9rem;
+        }
+
+        .price-change {
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .price-change.up {
+            color: var(--green);
+        }
+
+        .price-change.down {
+            color: var(--red);
+        }
+
+        #fetch-progress {
+            text-align: center;
+            padding: 0.75rem;
+            background: #fef3c7;
+            border-radius: 5px;
+            margin: 1rem 0;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: #92400e;
+            display: none;
+        }
+
+        @media (max-width: 1024px) {
+            .main-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .sidebar {
+                position: static;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <div>
+                    <div class="logo-section">
+                        <img src="logo.png" alt="GovCon Deal Flow" class="logo-image">
+                    </div>
+                    <div class="tagline">To Inform, Prepare, Connect</div>
+                </div>
+                <div class="top-nav">
+                    <a href="#subscribe">Subscribe</a>
+                    <a href="#about">About</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="nav-bar">
+        <div class="nav-content">
+            <a href="#federal-market-index">Federal Market Index</a>
+            <a href="#capital-insights">Capital Insights</a>
+            <a href="#match-up">Match-Up</a>
+            <a href="#events">Events</a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="main-container">
+        <!-- Left/Center Column: News -->
+        <div class="news-column">
+            <h2 class="section-title">Recent News</h2>
+
+            <!-- News Item 1 -->
+            <article class="news-item">
+                <div>
+                    <span class="news-tag">M&A</span>
+                    <span class="news-date">Jan 21, 2026</span>
+                </div>
+                <h3 class="news-headline">
+                    <a href="#">Software sell-off sparked by AI sets stage for potential big year of M&A, investors say</a>
+                </h3>
+                <p class="news-excerpt">
+                    With software stocks badly trailing the rest of the tech sector of late, investors told CNBC that they're buying the dip and predicted a flurry of deals.
+                </p>
+                <p class="news-source">By CNBC</p>
+            </article>
+
+            <!-- News Item 2 -->
+            <article class="news-item">
+                <div>
+                    <span class="news-tag">M&A</span>
+                    <span class="news-date">Jan 27, 2026</span>
+                </div>
+                <h3 class="news-headline">
+                    <a href="#">Army Awards Salesforce $5.6 Billion Software Deal</a>
+                </h3>
+                <p class="news-excerpt">
+                    Military recruiters will get access to Slack as part of a contract that reflects the Pentagon's drive to adopt commercial software tools.
+                </p>
+                <p class="news-source">By WSJ</p>
+            </article>
+
+            <!-- News Item 3 -->
+            <article class="news-item">
+                <div>
+                    <span class="news-tag" style="background: #059669;">PE</span>
+                    <span class="news-date">Jan 22, 2024</span>
+                </div>
+                <h3 class="news-headline">
+                    <a href="#">Arlington Capital Partners Closes $3.2B Fund VII</a>
+                </h3>
+                <p class="news-excerpt">
+                    The private equity firm focused on government services and defense technology has secured its largest fund to date, signaling strong investor confidence in the sector.
+                </p>
+                <p class="news-source">By Michael Torres</p>
+            </article>
+
+            <!-- SPONSOR CONTENT BLOCK -->
+            <div class="sponsor-block">
+                <div class="sponsor-label">Sponsor Content</div>
+                <h3 class="sponsor-headline">Your Thought Leadership Content Here</h3>
+                <p class="sponsor-text">
+                    Reach decision-makers in the GovCon M&A, PE, and VC space. Contact us to learn about sponsorship opportunities.
+                </p>
+                <a href="#contact" class="sponsor-cta">Contact Us</a>
+            </div>
+
+            <!-- News Item 4 -->
+            <article class="news-item">
+                <div>
+                    <span class="news-tag">M&A</span>
+                    <span class="news-date">Jan 26, 2026</span>
+                </div>
+                <h3 class="news-headline">
+                    <a href="#">Peraton Acquires AI Analytics Firm for Undisclosed Sum</a>
+                </h3>
+                <p class="news-excerpt">
+                    The government contractor continues its strategic expansion into artificial intelligence and advanced analytics capabilities through targeted acquisitions.
+                </p>
+                <p class="news-source">By Defense News</p>
+            </article>
+
+            <!-- News Item 5 -->
+            <article class="news-item">
+                <div>
+                    <span class="news-tag" style="background: #7c3aed;">VC</span>
+                    <span class="news-date">Jan 24, 2026</span>
+                </div>
+                <h3 class="news-headline">
+                    <a href="#">Shield Capital Leads $45M Series B for Cyber Startup Targeting Federal Agencies</a>
+                </h3>
+                <p class="news-excerpt">
+                    The defense-focused venture capital firm continues its investment thesis in dual-use cybersecurity technologies serving both commercial and government markets.
+                </p>
+                <p class="news-source">By TechCrunch</p>
+            </article>
+
+            <!-- NEWSLETTER SIGNUP BLOCK -->
+            <div class="newsletter-block">
+                <div class="newsletter-icon">📬</div>
+                <h3 class="newsletter-headline">Subscribe to Our Free Weekly Newsletter</h3>
+                <p class="newsletter-text">
+                    Each edition includes a recap of the most important M&A, PE, and VC stories, an update on the Federal Market Index performance versus other major indices, and curated Capital Insights from industry experts.
+                </p>
+                <form class="newsletter-form">
+                    <input type="email" class="newsletter-input" placeholder="Enter your email address" required>
+                    <button type="submit" class="newsletter-button">Subscribe</button>
+                </form>
+                <p class="newsletter-note">We do not sell our subscriber list.</p>
+            </div>
+
+            <!-- News Item 6 -->
+            <article class="news-item">
+                <div>
+                    <span class="news-tag" style="background: #7c3aed;">VC</span>
+                    <span class="news-date">Jan 18, 2024</span>
+                </div>
+                <h3 class="news-headline">
+                    <a href="#">Anduril Industries Secures $1.5B Contract for Counter-UAS</a>
+                </h3>
+                <p class="news-excerpt">
+                    Following its recent funding round, Anduril lands major DoD contract to deploy autonomous defense systems across military installations.
+                </p>
+                <p class="news-source">By Michael Torres</p>
+            </article>
+
+            <!-- News Item 7 -->
+            <article class="news-item">
+                <div>
+                    <span class="news-tag">M&A</span>
+                    <span class="news-date">Jan 17, 2024</span>
+                </div>
+                <h3 class="news-headline">
+                    <a href="#">L3Harris Divests Commercial Aviation Business for $800M</a>
+                </h3>
+                <p class="news-excerpt">
+                    Strategic divestiture allows L3Harris to sharpen focus on core defense and space segments as part of ongoing portfolio optimization.
+                </p>
+                <p class="news-source">LHX<br>By Emily Watson</p>
+            </article>
+
+            <!-- News Item 8 -->
+            <article class="news-item">
+                <div>
+                    <span class="news-tag" style="background: #059669;">PE</span>
+                    <span class="news-date">Jan 16, 2024</span>
+                </div>
+                <h3 class="news-headline">
+                    <a href="#">AE Industrial Partners Acquires Hermeus at $1B Valuation</a>
+                </h3>
+                <p class="news-excerpt">
+                    The hypersonic aircraft developer joins AE Industrial's growing portfolio of dual-use aerospace and defense technology companies.
+                </p>
+                <p class="news-source">By David Park</p>
+            </article>
+
+            <!-- CAPITAL INSIGHTS SECTION -->
+            <h2 class="section-title" style="margin-top: 1rem; margin-bottom: 0.5rem;">Capital Insights</h2>
+
+            <!-- Insight 1 -->
+            <article class="news-item">
+                <h3 class="news-headline">
+                    <a href="#">GovCon M&A and Recertification: What Small Business Contractors, Investors, and Private Equity Firms Need to Know</a>
+                </h3>
+                <p class="news-excerpt">
+                    The Small Business Administration's (SBA) size and recertification rules have always been central to government contracting. But recent regulatory changes, and where we now stand in mid-January 2026, mark a meaningful shift in the GovCon M&A landscape, particularly for private equity firms and other investors.
+                </p>
+            </article>
+
+            <!-- Insight 2 -->
+            <article class="news-item">
+                <h3 class="news-headline">
+                    <a href="#">M&A Insider Report from The McLean Group</a>
+                </h3>
+                <p class="news-excerpt">
+                    Monthly insights and analysis on mergers and acquisitions in the government contracting sector.
+                </p>
+            </article>
+
+            <!-- Insight 3 -->
+            <article class="news-item">
+                <h3 class="news-headline">
+                    <a href="#">A Potential Fundraising Boost for Venture Capital Investing: U.S. House Passes INVEST Act</a>
+                </h3>
+                <p class="news-excerpt">
+                    On December 11, 2025, the U.S. House of Representatives passed the Incentivizing New Ventures and Economic Strength Through Capital Formation Act ("INVEST Act") by a bipartisan vote of 302 to 123.
+                </p>
+            </article>
+        </div>
+
+        <!-- Right Sidebar: FMI Widget -->
+        <aside class="sidebar">
+            <div class="fmi-widget">
+                <div class="fmi-header">
+                    <div class="fmi-title">
+                        Federal Market Index<br>(FMI)
+                        <span class="fmi-info-icon" onclick="openFMIModal()">i</span>
+                    </div>
+                    <div class="fmi-value">191.58</div>
+                    <div class="fmi-change">↓ -0.82 (-0.43%)</div>
+
+                    <!-- Market Comparisons -->
+                    <div class="fmi-comparisons">
+                        <div class="fmi-comparisons-title">Market Comparisons</div>
+                        <div style="display: flex; justify-content: space-around; align-items: flex-start;">
+                            <div class="comparison-item">
+                                <div class="comparison-ticker">
+                                    XAR
+                                    <span class="tooltip">State Street SPDR S&P Aerospace and Defense ETF</span>
+                                </div>
+                                <div class="comparison-data">
+                                    <div class="comparison-price" id="xar-price">--</div>
+                                    <div class="comparison-change" id="xar-change">--</div>
+                                </div>
+                            </div>
+
+                            <div class="comparison-item">
+                                <div class="comparison-ticker">
+                                    SPY
+                                    <span class="tooltip">State Street SPDR S&P 500 Trust ETF</span>
+                                </div>
+                                <div class="comparison-data">
+                                    <div class="comparison-price" id="spy-price">--</div>
+                                    <div class="comparison-change" id="spy-change">--</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="fmi-meta">
+                        <small>As of: <span id="fmi-timestamp">--</span></small>
+                    </div>
+                    <button class="refresh-button" id="refresh-stocks">
+                        <span>🔄</span> Refresh Prices
+                    </button>
+                    <div id="fetch-progress"></div>
+                </div>
+
+                <div class="companies-section">
+                    <div class="companies-title">FMI Companies</div>
+                    
+                    <div class="company-item">
+                        <div class="company-info">
+                            <div class="company-ticker">LMT</div>
+                            <div class="company-name">Lockheed Martin</div>
+                        </div>
+                        <div class="company-price">
+                            <div class="price-value">$597.27</div>
+                            <div class="price-change up">↑ +2.32 (+0.39%)</div>
+                        </div>
+                    </div>
+
+                    <div class="company-item">
+                        <div class="company-info">
+                            <div class="company-ticker">RTX</div>
+                            <div class="company-name">RTX Corporation</div>
+                        </div>
+                        <div class="company-price">
+                            <div class="price-value">$199.46</div>
+                            <div class="price-change down">↓ -1.82 (-0.90%)</div>
+                        </div>
+                    </div>
+
+                    <div class="company-item">
+                        <div class="company-info">
+                            <div class="company-ticker">BA</div>
+                            <div class="company-name">Boeing</div>
+                        </div>
+                        <div class="company-price">
+                            <div class="price-value">$241.59</div>
+                            <div class="price-change down">↓ -2.97 (-1.21%)</div>
+                        </div>
+                    </div>
+
+                    <div class="company-item">
+                        <div class="company-info">
+                            <div class="company-ticker">NOC</div>
+                            <div class="company-name">Northrop Grumman</div>
+                        </div>
+                        <div class="company-price">
+                            <div class="price-value">$689.13</div>
+                            <div class="price-change up">↑ +10.39 (+1.53%)</div>
+                        </div>
+                    </div>
+
+                    <div class="company-item">
+                        <div class="company-info">
+                            <div class="company-ticker">GD</div>
+                            <div class="company-name">General Dynamics</div>
+                        </div>
+                        <div class="company-price">
+                            <div class="price-value">$356.68</div>
+                            <div class="price-change down">↓ -9.94 (-2.71%)</div>
+                        </div>
+                    </div>
+                    <div class="company-item">
+                        <div class="company-info">
+                            <div class="company-ticker">UNH</div>
+                            <div class="company-name">UnitedHealth Group</div>
+                        </div>
+                        <div class="company-price">
+                            <div class="price-value">--</div>
+                            <div class="price-change">--</div>
+                        </div>
+                    </div>
+
+                    <div class="company-item">
+                        <div class="company-info">
+                            <div class="company-ticker">LDOS</div>
+                            <div class="company-name">Leidos Holdings</div>
+                        </div>
+                        <div class="company-price">
+                            <div class="price-value">--</div>
+                            <div class="price-change">--</div>
+                        </div>
+                    </div>
+
+                    <div class="company-item">
+                        <div class="company-info">
+                            <div class="company-ticker">LHX</div>
+                            <div class="company-name">L3Harris Technologies</div>
+                        </div>
+                        <div class="company-price">
+                            <div class="price-value">--</div>
+                            <div class="price-change">--</div>
+                        </div>
+                    </div>
+
+                    <div class="company-item">
+                        <div class="company-info">
+                            <div class="company-ticker">MCK</div>
+                            <div class="company-name">McKesson</div>
+                        </div>
+                        <div class="company-price">
+                            <div class="price-value">--</div>
+                            <div class="price-change">--</div>
+                        </div>
+                    </div>
+
+                    <div class="company-item">
+                        <div class="company-info">
+                            <div class="company-ticker">HII</div>
+                            <div class="company-name">Huntington Ingalls Industries</div>
+                        </div>
+                        <div class="company-price">
+                            <div class="price-value">--</div>
+                            <div class="price-change">--</div>
+                        </div>
+                    </div>
+
+                    <div class="company-item">
+                        <div class="company-info">
+                            <div class="company-ticker">BAH</div>
+                            <div class="company-name">Booz Allen Hamilton Holding</div>
+                        </div>
+                        <div class="company-price">
+                            <div class="price-value">--</div>
+                            <div class="price-change">--</div>
+                        </div>
+                    </div>
+
+                    <div class="company-item">
+                        <div class="company-info">
+                            <div class="company-ticker">BAESY</div>
+                            <div class="company-name">BAE Systems</div>
+                        </div>
+                        <div class="company-price">
+                            <div class="price-value">--</div>
+                            <div class="price-change">--</div>
+                        </div>
+                    </div>
+
+                    <div class="company-item">
+                        <div class="company-info">
+                            <div class="company-ticker">HUM</div>
+                            <div class="company-name">Humana Government Business</div>
+                        </div>
+                        <div class="company-price">
+                            <div class="price-value">--</div>
+                            <div class="price-change">--</div>
+                        </div>
+                    </div>
+
+                    <div class="company-item">
+                        <div class="company-info">
+                            <div class="company-ticker">HON</div>
+                            <div class="company-name">Honeywell International</div>
+                        </div>
+                        <div class="company-price">
+                            <div class="price-value">--</div>
+                            <div class="price-change">--</div>
+                        </div>
+                    </div>
+
+                    <div class="company-item">
+                        <div class="company-info">
+                            <div class="company-ticker">FLR</div>
+                            <div class="company-name">Fluor</div>
+                        </div>
+                        <div class="company-price">
+                            <div class="price-value">--</div>
+                            <div class="price-change">--</div>
+                        </div>
+                    </div>
+
+                    <div class="company-item">
+                        <div class="company-info">
+                            <div class="company-ticker">COR</div>
+                            <div class="company-name">AmerisourceBergen</div>
+                        </div>
+                        <div class="company-price">
+                            <div class="price-value">--</div>
+                            <div class="price-change">--</div>
+                        </div>
+                    </div>
+
+                    <div class="company-item">
+                        <div class="company-info">
+                            <div class="company-ticker">SAIC</div>
+                            <div class="company-name">Science Applications International</div>
+                        </div>
+                        <div class="company-price">
+                            <div class="price-value">--</div>
+                            <div class="price-change">--</div>
+                        </div>
+                    </div>
+
+                    <div class="company-item">
+                        <div class="company-info">
+                            <div class="company-ticker">AMTM</div>
+                            <div class="company-name">Amentum Government Services Holdings</div>
+                        </div>
+                        <div class="company-price">
+                            <div class="price-value">--</div>
+                            <div class="price-change">--</div>
+                        </div>
+                    </div>
+
+                    <div class="company-item">
+                        <div class="company-info">
+                            <div class="company-ticker">CACI</div>
+                            <div class="company-name">CACI International</div>
+                        </div>
+                        <div class="company-price">
+                            <div class="price-value">--</div>
+                            <div class="price-change">--</div>
+                        </div>
+                    </div>
+
+                    <div class="company-item">
+                        <div class="company-info">
+                            <div class="company-ticker">ACN</div>
+                            <div class="company-name">Accenture</div>
+                        </div>
+                        <div class="company-price">
+                            <div class="price-value">--</div>
+                            <div class="price-change">--</div>
+                        </div>
+                    </div>
+
+                    <div class="company-item">
+                        <div class="company-info">
+                            <div class="company-ticker">DELL</div>
+                            <div class="company-name">Dell Technologies</div>
+                        </div>
+                        <div class="company-price">
+                            <div class="price-value">--</div>
+                            <div class="price-change">--</div>
+                        </div>
+                    </div>
+
+                    <div class="company-item">
+                        <div class="company-info">
+                            <div class="company-ticker">GE</div>
+                            <div class="company-name">General Electric</div>
+                        </div>
+                        <div class="company-price">
+                            <div class="price-value">--</div>
+                            <div class="price-change">--</div>
+                        </div>
+                    </div>
+
+                    <div class="company-item">
+                        <div class="company-info">
+                            <div class="company-ticker">MRK</div>
+                            <div class="company-name">Merck</div>
+                        </div>
+                        <div class="company-price">
+                            <div class="price-value">--</div>
+                            <div class="price-change">--</div>
+                        </div>
+                    </div>
+
+                    <div class="company-item">
+                        <div class="company-info">
+                            <div class="company-ticker">KBR</div>
+                            <div class="company-name">KBR</div>
+                        </div>
+                        <div class="company-price">
+                            <div class="price-value">--</div>
+                            <div class="price-change">--</div>
+                        </div>
+                    </div>
+
+                    <div class="company-item">
+                        <div class="company-info">
+                            <div class="company-ticker">J</div>
+                            <div class="company-name">Jacobs Solutions</div>
+                        </div>
+                        <div class="company-price">
+                            <div class="price-value">--</div>
+                            <div class="price-change">--</div>
+                        </div>
+                    </div>
+
+                    <div class="company-item">
+                        <div class="company-info">
+                            <div class="company-ticker">PSN</div>
+                            <div class="company-name">Parsons</div>
+                        </div>
+                        <div class="company-price">
+                            <div class="price-value">--</div>
+                            <div class="price-change">--</div>
+                        </div>
+                    </div>
+
+                    <div class="company-item">
+                        <div class="company-info">
+                            <div class="company-ticker">TXT</div>
+                            <div class="company-name">Textron</div>
+                        </div>
+                        <div class="company-price">
+                            <div class="price-value">--</div>
+                            <div class="price-change">--</div>
+                        </div>
+                    </div>
+
+                    <div class="company-item">
+                        <div class="company-info">
+                            <div class="company-ticker">MMS</div>
+                            <div class="company-name">Maximus</div>
+                        </div>
+                        <div class="company-price">
+                            <div class="price-value">--</div>
+                            <div class="price-change">--</div>
+                        </div>
+                    </div>
+
+                    <div class="company-item">
+                        <div class="company-info">
+                            <div class="company-ticker">SNY</div>
+                            <div class="company-name">Sanofi</div>
+                        </div>
+                        <div class="company-price">
+                            <div class="price-value">--</div>
+                            <div class="price-change">--</div>
+                        </div>
+                    </div>
+
+                    <div class="company-item">
+                        <div class="company-info">
+                            <div class="company-ticker">FDX</div>
+                            <div class="company-name">FedEx</div>
+                        </div>
+                        <div class="company-price">
+                            <div class="price-value">--</div>
+                            <div class="price-change">--</div>
+                        </div>
+                    </div>
+
+                    <div class="company-item">
+                        <div class="company-info">
+                            <div class="company-ticker">OSK</div>
+                            <div class="company-name">Oshkosh</div>
+                        </div>
+                        <div class="company-price">
+                            <div class="price-value">--</div>
+                            <div class="price-change">--</div>
+                        </div>
+                    </div>
+
+                    <div class="company-item">
+                        <div class="company-info">
+                            <div class="company-ticker">DRS</div>
+                            <div class="company-name">Leonardo</div>
+                        </div>
+                        <div class="company-price">
+                            <div class="price-value">--</div>
+                            <div class="price-change">--</div>
+                        </div>
+                    </div>
+
+                    <div class="company-item">
+                        <div class="company-info">
+                            <div class="company-ticker">T</div>
+                            <div class="company-name">AT&T</div>
+                        </div>
+                        <div class="company-price">
+                            <div class="price-value">--</div>
+                            <div class="price-change">--</div>
+                        </div>
+                    </div>
+
+                    <div class="company-item">
+                        <div class="company-info">
+                            <div class="company-ticker">VVX</div>
+                            <div class="company-name">Vectrus</div>
+                        </div>
+                        <div class="company-price">
+                            <div class="price-value">--</div>
+                            <div class="price-change">--</div>
+                        </div>
+                    </div>
+
+                    <div class="company-item">
+                        <div class="company-info">
+                            <div class="company-ticker">PFE</div>
+                            <div class="company-name">Pfizer</div>
+                        </div>
+                        <div class="company-price">
+                            <div class="price-value">--</div>
+                            <div class="price-change">--</div>
+                        </div>
+                    </div>
+
+                    <div class="company-item">
+                        <div class="company-info">
+                            <div class="company-ticker">IBM</div>
+                            <div class="company-name">International Business Machines</div>
+                        </div>
+                        <div class="company-price">
+                            <div class="price-value">--</div>
+                            <div class="price-change">--</div>
+                        </div>
+                    </div>
+
+                    <div class="company-item">
+                        <div class="company-info">
+                            <div class="company-ticker">GIB</div>
+                            <div class="company-name">CGI</div>
+                        </div>
+                        <div class="company-price">
+                            <div class="price-value">--</div>
+                            <div class="price-change">--</div>
+                        </div>
+                    </div>
+
+                    <div class="company-item">
+                        <div class="company-info">
+                            <div class="company-ticker">GSK</div>
+                            <div class="company-name">GlaxoSmithKline</div>
+                        </div>
+                        <div class="company-price">
+                            <div class="price-value">--</div>
+                            <div class="price-change">--</div>
+                        </div>
+                    </div>
+
+                    <div class="company-item">
+                        <div class="company-info">
+                            <div class="company-ticker">ACM</div>
+                            <div class="company-name">AECOM</div>
+                        </div>
+                        <div class="company-price">
+                            <div class="price-value">--</div>
+                            <div class="price-change">--</div>
+                        </div>
+                    </div>
+
+                    <div class="company-item">
+                        <div class="company-info">
+                            <div class="company-ticker">VLO</div>
+                            <div class="company-name">Valero Energy</div>
+                        </div>
+                        <div class="company-price">
+                            <div class="price-value">--</div>
+                            <div class="price-change">--</div>
+                        </div>
+                    </div>
+
+                    <div class="company-item">
+                        <div class="company-info">
+                            <div class="company-ticker">GEO</div>
+                            <div class="company-name">The GEO Group</div>
+                        </div>
+                        <div class="company-price">
+                            <div class="price-value">--</div>
+                            <div class="price-change">--</div>
+                        </div>
+                    </div>
+
+                    <div class="company-item">
+                        <div class="company-info">
+                            <div class="company-ticker">OLN</div>
+                            <div class="company-name">Olin</div>
+                        </div>
+                        <div class="company-price">
+                            <div class="price-value">--</div>
+                            <div class="price-change">--</div>
+                        </div>
+                    </div>
+
+                    <div class="company-item">
+                        <div class="company-info">
+                            <div class="company-ticker">BP</div>
+                            <div class="company-name">BP Products North America</div>
+                        </div>
+                        <div class="company-price">
+                            <div class="price-value">--</div>
+                            <div class="price-change">--</div>
+                        </div>
+                    </div>
+
+                    <div class="company-item">
+                        <div class="company-info">
+                            <div class="company-ticker">FCN</div>
+                            <div class="company-name">FCN</div>
+                        </div>
+                        <div class="company-price">
+                            <div class="price-value">--</div>
+                            <div class="price-change">--</div>
+                        </div>
+                    </div>
+
+                    <div class="company-item">
+                        <div class="company-info">
+                            <div class="company-ticker">RYCEY</div>
+                            <div class="company-name">Rolls-Royce Holdings</div>
+                        </div>
+                        <div class="company-price">
+                            <div class="price-value">--</div>
+                            <div class="price-change">--</div>
+                        </div>
+                    </div>
+
+                    <div class="company-item">
+                        <div class="company-info">
+                            <div class="company-ticker">ORCL</div>
+                            <div class="company-name">Oracle</div>
+                        </div>
+                        <div class="company-price">
+                            <div class="price-value">--</div>
+                            <div class="price-change">--</div>
+                        </div>
+                    </div>
+
+                    <div style="text-align: center; padding: 1rem 0; color: var(--dark-gray); font-size: 0.875rem;">
+                        All 46 FMI Companies Listed
+                    </div>
+                </div>
+            </div>
+        </aside>
+    </div>
+    
+    <!-- FMI Info Modal -->
+    <div id="fmiModal" class="fmi-modal" onclick="closeFMIModal(event)">
+        <div class="fmi-modal-content" onclick="event.stopPropagation()">
+            <span class="fmi-modal-close" onclick="closeFMIModal()">&times;</span>
+            <h3>About the Federal Market Index (FMI)</h3>
+            <p>
+                The FMI is a real-time stock index that tracks 46 publicly traded companies selected from the Sam.gov list of FY24 Top 100 Contractors, utilizing the most current data available. These companies collectively represent approximately 72% of the total contract value awarded to the top 100 contractors.
+            </p>
+            <p>
+                Each entity within the index receives a proprietary weighting according to the significance of U.S. federal contract awards to its overall business operations.
+            </p>
+            <p>
+                The FMI serves as an economic indicator - a barometer - intended to offer insights into the federal contracting landscape rather than to function as a tool for selecting individual stocks or guiding investment decisions.
+            </p>
+        </div>
+    </div>
+    
+    <script>
+// FMI Modal Functions
+function openFMIModal() {
+    document.getElementById('fmiModal').style.display = 'block';
+}
+
+function closeFMIModal(event) {
+    if (!event || event.target.id === 'fmiModal') {
+        document.getElementById('fmiModal').style.display = 'none';
+    }
+}
+
+// AlphaVantage API Configuration
+const ALPHA_VANTAGE_API_KEY = 'EYNDGBA0OOVL7UK3';
+const API_BASE_URL = 'https://www.alphavantage.co/query';
+
+// All 46 FMI Companies with their weights
+const FMI_COMPANIES = [
+    { ticker: 'LMT', name: 'Lockheed Martin', weight: 36.06 },
+    { ticker: 'RTX', name: 'RTX', weight: 9.53 },
+    { ticker: 'BA', name: 'Boeing', weight: 13.34 },
+    { ticker: 'NOC', name: 'Northrop Grumman', weight: 20.02 },
+    { ticker: 'GD', name: 'General Dynamics', weight: 20.82 },
+    { ticker: 'UNH', name: 'UnitedHealth Group', weight: 7.12 },
+    { ticker: 'LDOS', name: 'Leidos Holdings', weight: 49.32 },
+    { ticker: 'LHX', name: 'L3Harris Technologies', weight: 14.29 },
+    { ticker: 'MCK', name: 'McKesson', weight: 8.87 },
+    { ticker: 'HII', name: 'Huntington Ingalls Industries', weight: 53.3 },
+    { ticker: 'BAH', name: 'Booz Allen Hamilton Holding', weight: 79.01 },
+    { ticker: 'BAESY', name: 'BAE Systems', weight: 14.05 },
+    { ticker: 'HUM', name: 'Humana Government Business', weight: 34.19 },
+    { ticker: 'HON', name: 'Honeywell International', weight: 5.32 },
+    { ticker: 'FLR', name: 'Fluor', weight: 85.75 },
+    { ticker: 'COR', name: 'AmerisourceBergen', weight: 38.87 },
+    { ticker: 'SAIC', name: 'Science Applications International', weight: 117.73 },
+    { ticker: 'AMTM', name: 'Amentum Government Services Holdings', weight: 59.55 },
+    { ticker: 'CACI', name: 'CACI International', weight: 32.83 },
+    { ticker: 'ACN', name: 'Accenture', weight: 2.16 },
+    { ticker: 'DELL', name: 'Dell Technologies', weight: 4.41 },
+    { ticker: 'GE', name: 'General Electric', weight: 0.96 },
+    { ticker: 'MRK', name: 'Merck', weight: 1.07 },
+    { ticker: 'KBR', name: 'KBR', weight: 48.96 },
+    { ticker: 'J', name: 'Jacobs Solutions', weight: 16.19 },
+    { ticker: 'PSN', name: 'Parsons', weight: 33.83 },
+    { ticker: 'TXT', name: 'Textron', weight: 16.22 },
+    { ticker: 'MMS', name: 'Maximus', weight: 33.70 },
+    { ticker: 'SNY', name: 'Sanofi', weight: 1.42 },
+    { ticker: 'FDX', name: 'FedEx', weight: 2.08 },
+    { ticker: 'OSK', name: 'Oshkosh', weight: 16.04 },
+    { ticker: 'DRS', name: 'Leonardo', weight: 12.94 },
+    { ticker: 'T', name: 'AT&T', weight: 0.78 },
+    { ticker: 'VVX', name: 'Vectrus', weight: 65.04 },
+    { ticker: 'PFE', name: 'Pfizer', weight: 0.91 },
+    { ticker: 'IBM', name: 'International Business Machines', weight: 0.47 },
+    { ticker: 'GIB', name: 'CGI', weight: 6.52 },
+    { ticker: 'GSK', name: 'GlaxoSmithKline', weight: 1.12 },
+    { ticker: 'ACM', name: 'AECOM', weight: 8.95 },
+    { ticker: 'VLO', name: 'Valero Energy', weight: 1.83 },
+    { ticker: 'GEO', name: 'The GEO Group', weight: 45.95 },
+    { ticker: 'OLN', name: 'Olin', weight: 40.56 },
+    { ticker: 'BP', name: 'BP Products North America', weight: 1.00 },
+    { ticker: 'FCN', name: 'FCN', weight: 18.73 },
+    { ticker: 'RYCEY', name: 'Rolls-Royce Holdings', weight: 0.96 },
+    { ticker: 'ORCL', name: 'Oracle', weight: 0.20 }
+];
+
+// Fetch stock quote using TIME_SERIES_DAILY for previous close and TIME_SERIES_INTRADAY for current price
+async function fetchStockQuote(ticker) {
+    try {
+        // Step 1: Get yesterday's close from TIME_SERIES_DAILY
+        const dailyUrl = `${API_BASE_URL}?function=TIME_SERIES_DAILY&symbol=${ticker}&outputsize=compact&apikey=${ALPHA_VANTAGE_API_KEY}`;
+        const dailyResponse = await fetch(dailyUrl);
+        const dailyData = await dailyResponse.json();
+        
+        let previousClose = null;
+        
+        if (dailyData['Time Series (Daily)']) {
+            const dailySeries = dailyData['Time Series (Daily)'];
+            const dates = Object.keys(dailySeries).sort().reverse(); // Sort dates newest first
+            
+            // During market hours, dates[0] is today (incomplete), dates[1] is yesterday's close
+            // After market close, dates[0] is today's complete data
+            // We want the most recent COMPLETE trading day
+            const today = new Date().toISOString().split('T')[0];
+            
+            if (dates[0] === today) {
+                // If first date is today, use dates[1] as previous close
+                previousClose = parseFloat(dailySeries[dates[1]]['4. close']);
+            } else {
+                // If first date is not today (after hours/weekend), use dates[0]
+                previousClose = parseFloat(dailySeries[dates[0]]['4. close']);
+            }
+            
+            console.log(`${ticker} previous close: ${previousClose} from date ${dates[0] === today ? dates[1] : dates[0]}`);
+        }
+        
+        if (!previousClose) {
+            console.error(`No previous close for ${ticker}`);
+            return { ticker, success: false, error: 'No previous close data' };
+        }
+        
+        // Small delay to avoid rate limits
+        await delay(800);
+        
+        // Step 2: Get current intraday price (15-min delayed)
+        const intradayUrl = `${API_BASE_URL}?function=TIME_SERIES_INTRADAY&symbol=${ticker}&interval=1min&outputsize=compact&apikey=${ALPHA_VANTAGE_API_KEY}`;
+        const intradayResponse = await fetch(intradayUrl);
+        const intradayData = await intradayResponse.json();
+        
+        let currentPrice = previousClose; // Default to previous close if no intraday data
+        
+        if (intradayData['Time Series (1min)']) {
+            const timeSeries = intradayData['Time Series (1min)'];
+            const timestamps = Object.keys(timeSeries).sort().reverse(); // Most recent first
+            
+            if (timestamps.length > 0) {
+                currentPrice = parseFloat(timeSeries[timestamps[0]]['4. close']);
+                console.log(`${ticker} current price: ${currentPrice} from ${timestamps[0]}`);
+            }
+        } else {
+            console.log(`${ticker} no intraday data, using previous close`);
+        }
+        
+        // Calculate change from previous close
+        const change = currentPrice - previousClose;
+        const changePercent = (change / previousClose) * 100;
+        
+        console.log(`${ticker}: Price=${currentPrice.toFixed(2)}, Change=${change.toFixed(2)}, %=${changePercent.toFixed(2)}%`);
+        
+        return {
+            ticker: ticker,
+            price: currentPrice,
+            change: change,
+            changePercent: changePercent,
+            previousClose: previousClose,
+            success: true
+        };
+        
+    } catch (error) {
+        console.error(`Error fetching ${ticker}:`, error);
+        return { ticker, success: false, error: error.message };
+    }
+}
+
+// Delay function to respect rate limits
+function delay(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+// Fetch all stock quotes with rate limiting
+async function fetchAllStocks() {
+    const results = [];
+    const totalStocks = FMI_COMPANIES.length;
+    
+    updateProgress(0, totalStocks);
+    
+    for (let i = 0; i < FMI_COMPANIES.length; i++) {
+        const company = FMI_COMPANIES[i];
+        console.log(`Fetching ${i + 1}/${totalStocks}: ${company.ticker}`);
+        
+        const quote = await fetchStockQuote(company.ticker);
+        results.push({
+            ...company,
+            ...quote
+        });
+        
+        updateProgress(i + 1, totalStocks);
+        
+        if (quote.success) {
+            updateCompanyDisplay(company.ticker, quote);
+        }
+        
+        // Delay between stocks - We make 2 API calls per stock, with 800ms between calls
+        // Total: ~2.6 seconds per stock, about 23 stocks/min to stay under 75 calls/min limit
+        if (i < FMI_COMPANIES.length - 1) {
+            await delay(1800); // 1.8 seconds between stocks
+        }
+    }
+    
+    // Calculate and update FMI after all stocks are fetched
+    const fmiResult = calculateFMI(results);
+    updateFMIDisplay(fmiResult.value);
+    
+    console.log(`FMI Index: ${fmiResult.value.toFixed(2)} (based on ${fmiResult.successfulStocks} stocks)`);
+    
+    // Fetch comparison ETFs (XAR and SPY)
+    await fetchComparisonETFs();
+    
+    return results;
+}
+
+// Update progress indicator
+function updateProgress(current, total) {
+    const progressElement = document.getElementById('fetch-progress');
+    if (progressElement) {
+        if (current === total) {
+            const now = new Date();
+            const timeStr = now.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' });
+            progressElement.textContent = `All prices updated! (${timeStr} - 15min delayed)`;
+            setTimeout(() => {
+                progressElement.style.display = 'none';
+            }, 5000);
+        } else {
+            progressElement.style.display = 'block';
+            progressElement.textContent = `Loading prices... ${current}/${total}`;
+        }
+    }
+}
+
+// Update company display in the sidebar
+function updateCompanyDisplay(ticker, quote) {
+    const companyItems = document.querySelectorAll('.company-item');
+    
+    companyItems.forEach(item => {
+        const tickerElement = item.querySelector('.company-ticker');
+        if (tickerElement && tickerElement.textContent === ticker) {
+            const priceValueElement = item.querySelector('.price-value');
+            const priceChangeElement = item.querySelector('.price-change');
+            
+            if (priceValueElement) {
+                priceValueElement.textContent = `$${quote.price.toFixed(2)}`;
+            }
+            
+            if (priceChangeElement) {
+                const isPositive = quote.change >= 0;
+                priceChangeElement.className = `price-change ${isPositive ? 'up' : 'down'}`;
+                priceChangeElement.textContent = `${isPositive ? '↑' : '↓'} ${isPositive ? '+' : ''}${quote.change.toFixed(2)} (${isPositive ? '+' : ''}${quote.changePercent.toFixed(2)}%)`;
+            }
+        }
+    });
+}
+
+// Calculate FMI Index
+// Formula: Sum of (Stock Price × Weight%) for all 46 companies, divided by 10
+function calculateFMI(stockData) {
+    let weightedSum = 0;
+    let successfulStocks = 0;
+    
+    stockData.forEach(stock => {
+        if (stock.success && stock.price) {
+            const company = FMI_COMPANIES.find(c => c.ticker === stock.ticker);
+            if (company) {
+                const weightedPrice = stock.price * (company.weight / 100);
+                weightedSum += weightedPrice;
+                successfulStocks++;
+            }
+        }
+    });
+    
+    const fmiValue = weightedSum / 10;
+    
+    console.log(`FMI Calculation: ${successfulStocks}/46 stocks, weighted sum: ${weightedSum.toFixed(2)}, FMI: ${fmiValue.toFixed(2)}`);
+    
+    return {
+        value: fmiValue,
+        successfulStocks: successfulStocks
+    };
+}
+
+// Update FMI display
+function updateFMIDisplay(fmiValue, previousFMI = null) {
+    const fmiValueElement = document.querySelector('.fmi-value');
+    const fmiChangeElement = document.querySelector('.fmi-change');
+    
+    if (fmiValueElement) {
+        fmiValueElement.textContent = fmiValue.toFixed(2);
+    }
+    
+    if (fmiChangeElement && previousFMI !== null) {
+        const change = fmiValue - previousFMI;
+        const changePercent = (change / previousFMI) * 100;
+        const isPositive = change >= 0;
+        
+        fmiChangeElement.className = `fmi-change ${isPositive ? 'positive' : ''}`;
+        fmiChangeElement.style.color = isPositive ? 'var(--green)' : 'var(--red)';
+        fmiChangeElement.textContent = `${isPositive ? '↑' : '↓'} ${isPositive ? '+' : ''}${change.toFixed(2)} (${isPositive ? '+' : ''}${changePercent.toFixed(2)}%)`;
+    }
+    
+    // Update timestamp
+    const timestampElement = document.getElementById('fmi-timestamp');
+    if (timestampElement) {
+        const now = new Date();
+        timestampElement.textContent = now.toLocaleString('en-US', { 
+            month: 'short', 
+            day: 'numeric', 
+            year: 'numeric',
+            hour: 'numeric',
+            minute: '2-digit'
+        }) + ' (15-min delayed)';
+    }
+}
+
+// Fetch and update comparison ETFs (XAR and SPY)
+async function fetchComparisonETFs() {
+    const etfs = ['XAR', 'SPY'];
+    
+    for (const ticker of etfs) {
+        try {
+            const quote = await fetchStockQuote(ticker);
+            if (quote.success) {
+                updateComparisonDisplay(ticker, quote);
+            }
+        } catch (error) {
+            console.error(`Error fetching ${ticker}:`, error);
+        }
+    }
+}
+
+// Update comparison ETF display
+function updateComparisonDisplay(ticker, quote) {
+    const priceElement = document.getElementById(`${ticker.toLowerCase()}-price`);
+    const changeElement = document.getElementById(`${ticker.toLowerCase()}-change`);
+    
+    if (priceElement) {
+        priceElement.textContent = `$${quote.price.toFixed(2)}`;
+    }
+    
+    if (changeElement) {
+        const isPositive = quote.change >= 0;
+        changeElement.className = `comparison-change ${isPositive ? 'up' : 'down'}`;
+        changeElement.textContent = `${isPositive ? '↑' : '↓'} ${isPositive ? '+' : ''}${quote.change.toFixed(2)} (${isPositive ? '+' : ''}${quote.changePercent.toFixed(2)}%)`;
+    }
+}
+
+// Update FMI display
+function updateFMIDisplay(fmiValue, previousFMI = null) {
+    const fmiValueElement = document.querySelector('.fmi-value');
+    const fmiChangeElement = document.querySelector('.fmi-change');
+    
+    if (fmiValueElement) {
+        fmiValueElement.textContent = fmiValue.toFixed(2);
+    }
+    
+    if (fmiChangeElement && previousFMI !== null) {
+        const change = fmiValue - previousFMI;
+        const changePercent = (change / previousFMI) * 100;
+        const isPositive = change >= 0;
+        
+        fmiChangeElement.className = `fmi-change ${isPositive ? 'positive' : ''}`;
+        fmiChangeElement.style.color = isPositive ? 'var(--green)' : 'var(--red)';
+        fmiChangeElement.textContent = `${isPositive ? '↑' : '↓'} ${isPositive ? '+' : ''}${change.toFixed(2)} (${isPositive ? '+' : ''}${changePercent.toFixed(2)}%)`;
+    }
+}
+
+// Update company display in the sidebar
+function updateCompanyDisplay(ticker, quote) {
+    const companyItems = document.querySelectorAll('.company-item');
+    
+    companyItems.forEach(item => {
+        const tickerElement = item.querySelector('.company-ticker');
+        if (tickerElement && tickerElement.textContent === ticker) {
+            const priceValueElement = item.querySelector('.price-value');
+            const priceChangeElement = item.querySelector('.price-change');
+            
+            if (priceValueElement) {
+                priceValueElement.textContent = `$${quote.price.toFixed(2)}`;
+            }
+            
+            if (priceChangeElement) {
+                const isPositive = quote.change >= 0;
+                priceChangeElement.className = `price-change ${isPositive ? 'up' : 'down'}`;
+                priceChangeElement.textContent = `${isPositive ? '↑' : '↓'} ${isPositive ? '+' : ''}${quote.change.toFixed(2)} (${isPositive ? '+' : ''}${quote.changePercent.toFixed(2)}%)`;
+            }
+        }
+    });
+}
+
+// Initialize on page load
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('Stock data fetcher initialized');
+    
+    const refreshButton = document.getElementById('refresh-stocks');
+    if (refreshButton) {
+        refreshButton.addEventListener('click', function() {
+            this.disabled = true;
+            this.textContent = 'Updating...';
+            
+            fetchAllStocks().then(results => {
+                console.log('All stocks fetched:', results);
+                this.disabled = false;
+                this.textContent = '🔄 Refresh Prices';
+                
+                localStorage.setItem('fmiStockData', JSON.stringify({
+                    data: results,
+                    timestamp: Date.now()
+                }));
+            });
+        });
+    }
+    
+    // Check if we have cached data (less than 15 minutes old)
+    const cachedData = localStorage.getItem('fmiStockData');
+    if (cachedData) {
+        const { data, timestamp } = JSON.parse(cachedData);
+        const ageMinutes = (Date.now() - timestamp) / 1000 / 60;
+        
+        if (ageMinutes < 15) {
+            console.log('Using cached data (age: ' + ageMinutes.toFixed(1) + ' minutes)');
+            data.forEach(stock => {
+                if (stock.success) {
+                    updateCompanyDisplay(stock.ticker, stock);
+                }
+            });
+            
+            // Calculate and display FMI from cached data
+            const fmiResult = calculateFMI(data);
+            updateFMIDisplay(fmiResult.value);
+            console.log(`FMI Index (from cache): ${fmiResult.value.toFixed(2)}`);
+            
+            // Fetch fresh comparison ETFs even with cached FMI data
+            fetchComparisonETFs();
+            
+            return;
+        }
+    }
+    
+    console.log('No recent data. Click "Refresh Prices" to load stock data.');
+});
+    </script>
+</body>
+</html>
